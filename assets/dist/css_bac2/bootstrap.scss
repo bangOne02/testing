@@ -1,0 +1,369 @@
+:root {
+  color-scheme: light dark;
+  --numDays: 5;
+  --numHours: 18;
+  --timeHeight: 70px;
+  --calBgColor: #fff1f8;
+  --eventBorderColor: #f2d3d8;
+  --eventColor1: #ffd6d1;
+  --eventColor2: #fafaa3;
+  --eventColor3: #e2f8ff;
+  --eventColor4: #d1ffe6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --calBgColor: #723352;
+    --eventBorderColor: #512e33;
+    --eventColor1: #965a53;
+    --eventColor2: #65651b;
+    --eventColor3: #456b77;
+    --eventColor4: #28533c;
+  }
+}
+
+.calendar {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: auto 1fr;
+  margin: 2rem;
+}
+
+.timeline {
+  display: grid;
+  grid-template-rows: repeat(var(--numHours), var(--timeHeight));
+}
+
+.days {
+  display: grid;
+  grid-column: 2;
+  gap: 3px;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+.events {
+  display: grid;
+  grid-template-rows: repeat(var(--numHours), var(--timeHeight));
+  border-radius: 5px;
+  background: var(--calBgColor);
+}
+
+// Place on Timeline
+
+
+.start-1 {
+  grid-row-start: 1;
+}
+
+.end-1 {
+  grid-row-end: 5;
+}
+
+.start-5 {
+  grid-row-start: 1;
+}
+
+.end-5 {
+  grid-row-end: 1;
+}
+
+
+.start-6 {
+  grid-row-start: 2;
+}
+
+.end-6 {
+  grid-row-end: 2;
+}
+
+.start-7 {
+  grid-row-start: 3;
+}
+
+.end-7 {
+  grid-row-end: 3;
+}
+
+.start-8 {
+  grid-row-start: 4;
+}
+
+.end-8 {
+  grid-row-end: 4;
+}
+
+.start-9 {
+  grid-row-start: 5;
+}
+
+.end-9 {
+  grid-row-end: 5;
+}
+
+.start-10 {
+  grid-row-start: 6;
+}
+
+.end-10 {
+  grid-row-end: 6;
+}
+
+.start-11 {
+  grid-row-start: 7;
+}
+
+.end-11 {
+  grid-row-end: 7;
+}
+
+.start-12 {
+  grid-row-start: 8;
+}
+
+.end-12 {
+  grid-row-end: 8;
+}
+
+.start-13 {
+  grid-row-start: 9;
+}
+
+.end-13 {
+  grid-row-end: 9;
+}
+
+.start-14 {
+  grid-row-start: 10;
+}
+
+.end-14 {
+  grid-row-end: 10;
+}
+
+.start-15 {
+  grid-row-start: 11;
+}
+
+.end-15 {
+  grid-row-end: 11;
+}
+
+.start-16 {
+  grid-row-start: 12;
+}
+
+.end-16 {
+  grid-row-end: 12;
+}
+
+.start-17 {
+  grid-row-start: 13;
+}
+
+.end-17 {
+  grid-row-end: 13;
+}
+
+.start-18 {
+  grid-row-start: 14;
+}
+
+.end-18 {
+  grid-row-end: 14;
+}
+
+.start-19 {
+  grid-row-start: 15;
+}
+
+.end-19 {
+  grid-row-end: 15;
+}
+
+.start-20 {
+  grid-row-start: 16;
+}
+
+.end-20 {
+  grid-row-end: 16;
+}
+
+.start-21 {
+  grid-row-start: 17;
+}
+
+.end-21 {
+  grid-row-end: 17;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+.start-7 {
+  grid-row-start: 4;
+}
+
+.end-7 {
+  grid-row-end: 4;
+}*/
+
+/*
+.start-8 {
+  grid-row-start: 5;
+}
+
+.end-8 {
+  grid-row-end: 5;
+}*/
+
+
+
+
+
+
+// Event
+
+.title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.event {
+  border: 1px solid var(--eventBorderColor);
+  border-radius: 5px;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  background: white;
+}
+
+.space,
+.date {
+  height: 70px
+}
+
+// Global / Etc
+
+body {
+  font-family: system-ui, sans-serif;
+}
+
+.corp-fi {
+  background: var(--eventColor1);
+}
+
+.ent-law {
+  background: var(--eventColor2);
+}
+
+.writing {
+  background: var(--eventColor3);
+}
+
+.securities {
+  background: var(--eventColor4);
+}
+
+.date {
+  display: flex;
+  gap: 1em;
+}
+
+.date-num {
+  font-size: 2.3rem;
+  font-weight: 600;
+  display: inline;
+}
+
+.date-day {
+  display: inline;
+  font-size: 3rem;
+  font-weight: 100;
+}
+
+// 
+// Container Queries!
+// 
+
+// Set up the containers
+.day {
+  contain: style layout size;
+}
+
+// Less horizontal space == more compact
+@container (max-width: 200px) {
+  .date {
+    display: block;
+  }
+  
+  .date-num {
+    font-size: 2.5rem;
+    display: block;
+  }
+  
+  .date-day {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+  
+  .time {
+    font-size: 90%
+  }
+}
+
+// Even smaller space
+
+@container (max-width: 150px) {
+  .event {
+    margin: 0;
+    font-size: 0.9rem;
+  }
+}
+
+// Now MQ for Macro Layout
+@media (max-width: 660px) {
+  .calendar {
+    margin: 0.5rem;
+  }
+  
+  .timeline {
+    display: none;
+  }
+  
+  .days {
+    --timeHeight: 50px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 580px);
+  }
+}
+
+.warning {
+  max-width: 460px;
+  margin: 2rem auto;
+  background: #ffcebf;
+  border: 1px solid tomato;
+  padding: 1rem;
+}
+
+strong {
+  font-weight: 800;
+}
+
+i {
+  font-style: italic;
+}
+
+@supports (contain: inline-size) {
+  .warning {
+    display: none;
+  }
+}

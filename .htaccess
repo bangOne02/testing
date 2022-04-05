@@ -1,0 +1,11 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php/$1 [L]
+
+#handle large file size upload
+#biar masuk tmp dari php
+php_value upload_max_filesize 300M
+php_value post_max_size 300M
+php_value max_execution_time 600
+php_value memory_limit 256M

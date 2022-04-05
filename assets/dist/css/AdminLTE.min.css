@@ -23,7 +23,7 @@
  }
  .wrapper {
    height: 100%;
-   position: relative;
+   position: initial;
    overflow-x: hidden;
    overflow-y: auto;
  }

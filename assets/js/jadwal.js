@@ -281,13 +281,13 @@ function listSuhu(nocontainer){
 			"bInfo" : false,
 		      "pageLength": 15,
 			  "bLengthChange": false,
-			  "order": [[ 6, "desc" ]],
+			  "order": [[ 7, "desc" ]],
               "initComplete": function (settings, json) {  
 		    		$("#table_1_suhu").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
 			  }, 
 			  "columnDefs": [
 		            {
-		                "targets": [ 6 ],
+		                "targets": [ 7 ],
 		                "visible": false
 		            }
 		      ],

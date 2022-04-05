@@ -240,7 +240,8 @@ class Kendaraan extends CI_Controller {
 				'keterangan'=> $keterangan,
 				'tanggal'=> date('Y-m-d'),
 				'jam'=> date('H:i:s'),
-				'idcontainer'=> $id
+				'idcontainer'=> $id,
+				'insert_by'=> $id_admin
 		);
 
 		$insert = $this->M_codeigniter->insert('tbl_suhu', $data_send_1);
@@ -266,7 +267,7 @@ class Kendaraan extends CI_Controller {
 
 	public function myListSuhu(){
 		$nocontainer = $this->input->post('nocontainer');
-		$data['table'] = $this->M_codeigniter->query("SELECT * from tbl_suhu where idcontainer = '".$nocontainer."'")->result();
+		$data['table'] = $this->M_codeigniter->query("SELECT s.*,a.fk_plant from tbl_suhu s left join tbl_admin a on a.id_admin = s.insert_by where s.idcontainer = '".$nocontainer."'")->result();
 		$output = array(
 			'html' => $this->load->view('list_suhu', $data, true),
 		);

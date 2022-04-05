@@ -45,7 +45,7 @@ class Laporan extends CI_Controller {
 		$data['hasil'] = $this->M_codeigniter->query("
 				SELECT b.`nomor_kasbon`,b.`nominal`,DATE_FORMAT(DATE(b.`created_at`),'%d/%m/%Y') AS tgltotalan,IFNULL(md.`nama_mdriver`,s.sopir) AS sopir,UPPER(k.`nopol`) AS nopol,
 				DATE_FORMAT(p.`tglberangkat`,'%d-%m-%Y') AS tglberangkat,
-				CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ', p.`jenismuatan`, ' / ' ,IFNULL(co.container,''),' ) ') AS tujuan,
+				CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ', p.`jenismuatan`,'-',pd.jenismuatan , ' / ' ,IFNULL(co.container,''),' ) ') AS tujuan,
 				c.`cost_center` AS costcenter,g.`gl_account` AS glaccount,db.totalbiaya2,a.username
 				FROM
 				tbl_biaya b 
@@ -55,6 +55,7 @@ class Laporan extends CI_Controller {
 				LEFT JOIN tbl_driver md ON md.id_mdriver = s.`sopir`
 				LEFT JOIN tbl_kendaraan k ON k.id = s.`kendaraan`
 				LEFT JOIN tbl_p_keberangkatan p ON p.fk_idsj = s.id
+				LEFT JOIN tbl_p_kedatangan pd ON pd.fk_idsj = s.id
 				LEFT JOIN 
 				(
 					SELECT * FROM tbl_container
@@ -859,25 +860,26 @@ else
 	    $a = $a.')';
 
 		$data['hasil'] = $this->M_codeigniter->query("
-		    SELECT '40' as `PK`,'' as `SPESIAL G/L`,t1.glaccount as `ACCOUNT`,t1.totalbiaya2 as `AMOUNT`,t1.business_area as `BUSINESS AREA`,t1.costcenter as `COSTCENTER`,'' as `PROFIT CENTER`,CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ', pk.`jenismuatan`, ' / ' ,c.container,' ) ') as `TEXT`,
+		    SELECT '40' as `PK`,'' as `SPESIAL G/L`,t1.glaccount as `ACCOUNT`,t1.totalbiaya2 as `AMOUNT`,t1.business_area as `BUSINESS AREA`,t1.costcenter as `COSTCENTER`,'' as `PROFIT CENTER`,CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ',pk.`jenismuatan`,'-',pd.jenismuatan, ' / ' ,c.container,' ) ') as `TEXT`,
 			'10140624' as `INTERNAL ORDER`
 			FROM tbl_biaya b 
 			LEFT JOIN 
 			(SELECT t1.*,((t1.bbmtunai + t1.bbmhead + t1.genset + t1.bbmnontunai + t1.biayatol + t1.parkir + t1.kuli + t1.kelasjalan + t1.feeinap + t1.biayalain) - (t1.bbmhead + t1.genset)) AS biayacont,
-							(((t1.bbmtunai + t1.bbmhead + t1.genset + t1.bbmnontunai + t1.biayatol + t1.parkir + t1.kuli + t1.kelasjalan + t1.feeinap + t1.biayalain) - (t1.bbmhead + t1.genset)) + t1.feedriver + t1.feekernet) AS totalbiaya1,
-							((((t1.bbmtunai + t1.bbmhead + t1.genset + t1.bbmnontunai + t1.biayatol + t1.parkir + t1.kuli + t1.kelasjalan + t1.feeinap + t1.biayalain) - (t1.bbmhead + t1.genset)) + t1.feedriver + t1.feekernet) - t1.bbmnontunai) AS totalbiaya2	
-							FROM 
-							(SELECT db.id_biaya,db.`id_sj`,g.`gl_account` as glaccount,c.`cost_center` as costcenter,c.business_area, db.bbmtunai,(db.bbmtunai + db.bbmnontunai - db.genset) AS bbmhead,db.genset,db.bbmnontunai,db.nomemo,db.biayatol,db.parkir,db.kuli,db.kelasjalan,
-							       db.feeinap,db.biayalain,db.feedriver,db.lemburdriver,(db.feedriver + db.lemburdriver) AS totalfeedriver, db.feekernet, db.lemburkernet, 
-							       (db.feekernet + db.lemburkernet) AS totalfeekernet,db.keterangan
-							FROM tbl_detail_biaya db left join tbl_costcenter c on c.id = db.costcenter left join tbl_general_ledger g on g.id = db.glaccount) AS t1) AS t1 ON b.`id` = t1.id_biaya
-							LEFT JOIN tbl_suratjalan s ON s.`id` = t1.`id_sj`
-							LEFT JOIN tbl_p_keberangkatan pk ON pk.fk_idsj = s.id
-							LEFT JOIN tbl_container c ON c.id = pk.nocontainer
-							LEFT JOIN tbl_pelabuhan pl ON pl.`id_mpelabuhan` = s.`tujuan`
-							LEFT JOIN tbl_depo dp ON dp.id_mdepo = s.`tujuan` 
-							LEFT JOIN tbl_plant pt ON pt.`id_mplant` = s.`tujuan`	 
-							where b.id in ".$a."
+			(((t1.bbmtunai + t1.bbmhead + t1.genset + t1.bbmnontunai + t1.biayatol + t1.parkir + t1.kuli + t1.kelasjalan + t1.feeinap + t1.biayalain) - (t1.bbmhead + t1.genset)) + t1.feedriver + t1.feekernet) AS totalbiaya1,
+			((((t1.bbmtunai + t1.bbmhead + t1.genset + t1.bbmnontunai + t1.biayatol + t1.parkir + t1.kuli + t1.kelasjalan + t1.feeinap + t1.biayalain) - (t1.bbmhead + t1.genset)) + t1.feedriver + t1.feekernet) - t1.bbmnontunai) AS totalbiaya2	
+			FROM 
+			(SELECT db.id_biaya,db.`id_sj`,g.`gl_account` as glaccount,c.`cost_center` as costcenter,c.business_area, db.bbmtunai,(db.bbmtunai + db.bbmnontunai - db.genset) AS bbmhead,db.genset,db.bbmnontunai,db.nomemo,db.biayatol,db.parkir,db.kuli,db.kelasjalan,
+					db.feeinap,db.biayalain,db.feedriver,db.lemburdriver,(db.feedriver + db.lemburdriver) AS totalfeedriver, db.feekernet, db.lemburkernet, 
+					(db.feekernet + db.lemburkernet) AS totalfeekernet,db.keterangan
+			FROM tbl_detail_biaya db left join tbl_costcenter c on c.id = db.costcenter left join tbl_general_ledger g on g.id = db.glaccount) AS t1) AS t1 ON b.`id` = t1.id_biaya
+			LEFT JOIN tbl_suratjalan s ON s.`id` = t1.`id_sj`
+			LEFT JOIN tbl_p_keberangkatan pk ON pk.fk_idsj = s.id
+			LEFT JOIN tbl_p_kedatangan pd ON pd.fk_idsj = s.id
+			LEFT JOIN tbl_container c ON c.id = pk.nocontainer
+			LEFT JOIN tbl_pelabuhan pl ON pl.`id_mpelabuhan` = s.`tujuan`
+			LEFT JOIN tbl_depo dp ON dp.id_mdepo = s.`tujuan` 
+			LEFT JOIN tbl_plant pt ON pt.`id_mplant` = s.`tujuan`	 
+			where b.id in ".$a."
 		")->result();	
 
 		$tanggal = date("Y-m-d H:i:s");

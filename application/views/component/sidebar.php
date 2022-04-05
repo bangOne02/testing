@@ -327,14 +327,7 @@
                   </span>
                 </a>
               </li>
-              <li>
-                <a href="<?php echo base_url('Laporan/biaya'); ?>">
-                  <i class="fa fa-files-o"></i><span>&nbsp;REPORT BIAYA-BIAYA</span>
-                  <span class="pull-right-container">
-                    <i class="fa fa-angle-left pull-right"></i>
-                  </span>
-                </a>
-              </li>
+             
               <?php
               }
               ?>

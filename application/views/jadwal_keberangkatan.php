@@ -9,7 +9,7 @@
 			</div>
 			<div class="box box-primary panel-hidden box-solid" style="display: block;">
       <div class="box-header" style="height: 39px;background: white;color: black;">
-              <div class="table-wrapper" style="display: flex;margin-left: 0px;border: inset;align-items: center;position: initial;">
+              <div class="table-wrapper" style="display: flex;margin-left: -13px;align-items: center;position: initial;border: ridge;margin-right: -12px;">
                     <span class="date-label" style="
     font-family: 'FontAwesome';margin-top: 1px;">&nbsp;&nbsp;&nbsp;TANGGAL &nbsp; </span><input autocomplete="off" class="date" data-date-format="dd-mm-yyyy" type="date" id="tanggal" style="height: initial;margin-top: 2px;margin-bottom: 2px;" />
                           &nbsp;&nbsp;&nbsp;&nbsp;
@@ -31,7 +31,6 @@
     background-color: #87ceeb;
     padding-left: 12px;
     padding-right: 12px;
-    border: inset;
     top: 59px;
     left: 0px;
     position: absolute;
@@ -65,8 +64,6 @@
     <div class="day mon" >
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -76,7 +73,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN01<br><?php echo $kendaraan1->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
 
 
           <?php 
@@ -160,8 +157,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -171,7 +166,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN02<br><?php echo $kendaraan2->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
 
 
           <?php 
@@ -253,8 +248,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -264,7 +257,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN03<br><?php echo $kendaraan3->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
 
 
           <?php 
@@ -346,8 +339,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -357,7 +348,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN04<br><?php echo $kendaraan4->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
 
 
           <?php 
@@ -439,8 +430,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -450,7 +439,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN05<br><?php echo $kendaraan5->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
 
 
           <?php 
@@ -532,8 +521,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -543,7 +530,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN06<br><?php echo $kendaraan6->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events">
 
 
           <?php 
@@ -625,8 +612,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -636,7 +621,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN07<br><?php echo $kendaraan7->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
 
 
           <?php 
@@ -718,8 +703,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -729,7 +712,7 @@
     color: azure;
 ">&nbsp;&nbsp;GRAB/GOJEK&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
           <?php 
             foreach ($kend8 as $row) { 
                 $staty = 0;
@@ -809,8 +792,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -820,7 +801,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAANLMG1<br><?php echo $kendaraan8->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
           <?php 
             foreach ($kend9 as $row) { 
                 $staty = 0;
@@ -900,8 +881,6 @@
     <div class="day mon">
       <div class="date" style="
     background-color: skyblue;
-    /* border: 23px; */
-    border: inset;
     align-items: center;
     justify-content: center;
 ">
@@ -911,7 +890,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAANLMG2<br><?php echo $kendaraan9->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" style="border: inset;">
+      <div class="events" >
           <?php 
             foreach ($kend10 as $row) { 
                 $staty = 0;

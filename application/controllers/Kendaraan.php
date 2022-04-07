@@ -629,7 +629,8 @@ class Kendaraan extends CI_Controller {
 		$id_admin = $this->session->userdata('id_admin');
 		$id	= $this->input->post('id');
 		$nopol = $this->input->post('nopol');
-		$nopolbaru = $this->input->post('nopolbaru');
+		//$nopolbaru = $this->input->post('nopolbaru');
+		$nopolbaru = preg_replace('/\s+/', '', $this->input->post('nopolbaru'));
 		$nopol_lama = $this->input->post('nopol_lama');
 
 		if ($nopolbaru != '')

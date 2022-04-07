@@ -139,6 +139,34 @@
                                 </select>
                         </div>
                     </div>
+                    <div class="col-md-12" id="formmuatan">
+                        <div class="form-group">
+                            <br>
+                            <label>JENIS MUATAN</label>
+                                <input style="text-transform:uppercase" placeholder="" value="<?php echo $table->jenismuatan; ?>" class="form-control" id="isimuatan" name="isimuatan">
+                        </div>
+                    </div> 
+                    <div class="col-md-12" id="formgembok">
+                        <div class="form-group">
+                            <br>
+                            <label>GEMBOK</label>
+                                <input style="text-transform:uppercase" placeholder="" value="<?php echo $table->gembok; ?>" class="form-control" id="gembok" name="gembok">
+                        </div>
+                    </div>  
+                    <div class="col-md-12" id="formpelayaran">
+                        <div class="form-group">
+                            <br>
+                            <label>SEGEL PELAYARAN</label>
+                                <input style="text-transform:uppercase" placeholder="" value="<?php echo $table->segelpelayaran ; ?>" class="form-control" id="segelpelayaran" name="segelpelayaran">
+                        </div>
+                    </div> 
+                    <div class="col-md-12" id="formbeacukai">
+                        <div class="form-group">
+                            <br>
+                            <label>SEGEL BEACUKAI</label>
+                                <input style="text-transform:uppercase" placeholder="" class="form-control" value="<?php echo $table->segelbeacukai ; ?>" id="segelbeacukai" name="segelbeacukai">
+                        </div>
+                    </div> 
                 <?php
                 }
                 ?>
@@ -176,34 +204,7 @@
                             </select>
                     </div>
                 </div> 
-                <div class="col-md-12" id="formmuatan">
-                    <div class="form-group">
-                        <br>
-                        <label>JENIS MUATAN</label>
-                            <input style="text-transform:uppercase" placeholder="" value="<?php echo $table->jenismuatan; ?>" class="form-control" id="isimuatan" name="isimuatan">
-                    </div>
-                </div> 
-                <div class="col-md-12" id="formgembok">
-                    <div class="form-group">
-                        <br>
-                        <label>GEMBOK</label>
-                            <input style="text-transform:uppercase" placeholder="" value="<?php echo $table->gembok; ?>" class="form-control" id="gembok" name="gembok">
-                    </div>
-                </div>  
-                <div class="col-md-12" id="formpelayaran">
-                    <div class="form-group">
-                        <br>
-                        <label>SEGEL PELAYARAN</label>
-                            <input style="text-transform:uppercase" placeholder="" value="<?php echo $table->segelpelayaran ; ?>" class="form-control" id="segelpelayaran" name="segelpelayaran">
-                    </div>
-                </div> 
-                <div class="col-md-12" id="formbeacukai">
-                    <div class="form-group">
-                        <br>
-                        <label>SEGEL BEACUKAI</label>
-                            <input style="text-transform:uppercase" placeholder="" class="form-control" value="<?php echo $table->segelbeacukai ; ?>" id="segelbeacukai" name="segelbeacukai">
-                    </div>
-                </div> 
+                
                 <div class="col-md-12">
                         <div class="form-group">
                             <br>

@@ -9,7 +9,7 @@
 			</div>
 			<div class="box box-primary panel-hidden box-solid" style="display: block;">
       <div class="box-header" style="height: 39px;background: white;color: black;">
-              <div class="table-wrapper" style="display: flex;margin-left: -10px;border: inset;align-items: center;position: initial;">
+              <div class="table-wrapper" style="display: flex;margin-left: 0px;border: inset;align-items: center;position: initial;">
                     <span class="date-label" style="
     font-family: 'FontAwesome';margin-top: 1px;">&nbsp;&nbsp;&nbsp;TANGGAL &nbsp; </span><input autocomplete="off" class="date" data-date-format="dd-mm-yyyy" type="date" id="tanggal" style="height: initial;margin-top: 2px;margin-bottom: 2px;" />
                           &nbsp;&nbsp;&nbsp;&nbsp;

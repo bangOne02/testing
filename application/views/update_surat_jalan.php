@@ -81,7 +81,20 @@
                     <div class="form-group">
                         <br>
                         <label>&nbsp;</label>
-                            <input style="text-transform:uppercase" disabled id="itujuan" value="<?php if ($i == 0) { echo strtoupper($table->tujuan); } ?>" placeholder="OTHER..." class="form-control" name="itujuan" required>
+                            <input style="text-transform:uppercase" id="itujuan"
+                            <?php if ($i == 0)
+                            {
+                                ?>
+                                 value="<?php if ($i == 0) { echo strtoupper($table->tujuan); } ?>"
+                                <?php
+                            } else
+                            {
+                                ?>
+                                disabled value="<?php if ($i == 0) { echo strtoupper($table->tujuan); } ?>"
+                            <?php    
+                            }
+                            ?>
+                             placeholder="OTHER..." class="form-control" name="itujuan" required>
                     </div>
                 </div>  
                 
@@ -99,7 +112,7 @@
                     <div class="col-md-12" id="formtugas">
                     <div class="form-group" id="idtugas">
                         <label>TUGAS</label>
-                            <textarea style="text-transform:uppercase;resize: none;height: 150px;" class="form-control" id="tugas" name="tugas"></textarea>
+                            <textarea style="text-transform:uppercase;resize: none;height: 150px;" class="form-control" id="tugas" name="tugas"><?php echo $table->tugas; ?></textarea>
                     </div>
                     </div>
                 <?php

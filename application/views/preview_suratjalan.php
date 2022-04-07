@@ -57,6 +57,16 @@
 					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->keterangan);?></td>
 			</tr>
 			<?php
+			  if ($hasil[0]->nopol != '')
+			  {?>
+			  		<tr>
+					<td>RENCANA KENDARAAN</td>
+					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->nopol);?></td>
+					</tr>
+			  <?php
+			  }
+			?>
+			<?php
 			  if ($hasil[0]->sopir != '')
 			  {?>
 			  		<tr>

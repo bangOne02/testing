@@ -8,17 +8,17 @@
 		        </div>
 			</div>
 			<div class="box box-primary panel-hidden box-solid" style="display: block;">
-        
-
-				<div class="table-responsive">
-        <div class="box-header" style="height: 39px;background: white;color: black;">
-              <div class="table-wrapper" style="display: flex;margin-left: -10px;border: inset;align-items: center;position: absolute;">
+      <div class="box-header" style="height: 39px;background: white;color: black;">
+              <div class="table-wrapper" style="display: flex;margin-left: -10px;border: inset;align-items: center;position: initial;">
                     <span class="date-label" style="
-    font-family: 'FontAwesome';margin-top: 1px;">&nbsp;&nbsp;&nbsp;PERIODE TANGGAL &nbsp; </span><input autocomplete="off" class="date" data-date-format="dd-mm-yyyy" type="date" id="tanggal" style="height: initial;margin-top: 2px;margin-bottom: 2px;" />
+    font-family: 'FontAwesome';margin-top: 1px;">&nbsp;&nbsp;&nbsp;TANGGAL &nbsp; </span><input autocomplete="off" class="date" data-date-format="dd-mm-yyyy" type="date" id="tanggal" style="height: initial;margin-top: 2px;margin-bottom: 2px;" />
                           &nbsp;&nbsp;&nbsp;&nbsp;
                           <button type="button" id="btn-tgl" data-toggle="modal" style="padding: 0px 14px;">SUBMIT</button> 						            
               </div>
         </div> 
+
+				<div class="table-responsive" style="border: 0px;">
+       
 
 
 					<table width="100%" id="table_1_berangkat" class="table table-bordered display nowrap table-striped dataTable" style="width: 100%">

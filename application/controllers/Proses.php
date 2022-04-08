@@ -60,7 +60,8 @@ class Proses extends CI_Controller{
 		
 		$data['table'] = $this->M_codeigniter->query("
 			  SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
-	          p.`nama_mpelabuhan` AS tujuan,sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai
+	          p.`nama_mpelabuhan` AS tujuan,sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
+			  kb.tglberangkat,kd.tgltiba
 			  FROM tbl_suratjalan sj 
 	          JOIN tbl_pelabuhan p ON p.`id_mpelabuhan` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
@@ -68,10 +69,13 @@ class Proses extends CI_Controller{
 	          LEFT JOIN tbl_driver d ON d.`id_mdriver` = sj.`sopir`
 	          LEFT JOIN tbl_chasis s ON s.id = sj.sasis
 	          LEFT JOIN tbl_container c ON c.id = sj.nocontainer
+			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
+			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
 	          WHERE sj.nomorsj = '".$no_sj."' 
 	          UNION
 	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
-	          p.`nama_mdepo` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai
+	          p.`nama_mdepo` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
+			  kb.tglberangkat,kd.tgltiba
 	          FROM tbl_suratjalan sj 
 	          JOIN tbl_depo p ON p.`id_mdepo` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
@@ -79,10 +83,13 @@ class Proses extends CI_Controller{
 	          LEFT JOIN tbl_driver d ON d.`id_mdriver` = sj.`sopir`
 	          LEFT JOIN tbl_chasis s ON s.id = sj.sasis
 	          LEFT JOIN tbl_container c ON c.id = sj.nocontainer
+			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
+			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
 	          WHERE sj.nomorsj = '".$no_sj."' 
 	          UNION
 	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
-	          p.`nama_mplant` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai
+	          p.`nama_mplant` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
+			  kb.tglberangkat,kd.tgltiba
 	          FROM tbl_suratjalan sj 
 	          JOIN tbl_plant p ON p.`id_mplant` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
@@ -90,16 +97,21 @@ class Proses extends CI_Controller{
 	          LEFT JOIN tbl_driver d ON d.`id_mdriver` = sj.`sopir`
 	          LEFT JOIN tbl_chasis s ON s.id = sj.sasis
 	          LEFT JOIN tbl_container c ON c.id = sj.nocontainer
+			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
+			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
 	          WHERE sj.nomorsj = '".$no_sj."' 
 	          UNION
 	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
-	          sj.`tujuan` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai
+	          sj.`tujuan` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
+			  kb.tglberangkat,kd.tgltiba
 	          FROM tbl_suratjalan sj 
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
 	          LEFT JOIN tbl_jenis_kendaraan j ON k.jenis = j.id
 	          LEFT JOIN tbl_driver d ON d.`id_mdriver` = sj.`sopir`
 	          LEFT JOIN tbl_chasis s ON s.id = sj.sasis
 	          LEFT JOIN tbl_container c ON c.id = sj.nocontainer
+			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
+			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
 	          WHERE sj.nomorsj = '".$no_sj."'  AND sj.`jns_tujuan` = 0
 		")->result();
 

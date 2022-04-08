@@ -1,7 +1,4 @@
 <header class="main-header">
-  <a href="index2.html" class="logo" style="background-color: black;">
-    <span class="logo-lg"><b></b></span>
-  </a>
   <nav class="navbar navbar-static-top" style="background-color: black;">
     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
       <span class="sr-only">Toggle navigation</span>

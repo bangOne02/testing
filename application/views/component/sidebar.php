@@ -1,5 +1,5 @@
 <aside class="main-sidebar">
-  <section class="sidebar"> 
+  <section class="sidebar" > 
     <?php
           $username = $this->session->userdata('username');
     ?>
@@ -9,7 +9,7 @@
       </div>
       <div class="pull-left info">
         <p><?php echo strtoupper($username); ?></p>
-        <a href="#"><i class="fa fa-circle text-success"></i> ONLINE</a>
+        <a href="#"><i class="fa fa-circle text-success" style="color: chartreuse;"></i> ONLINE</a>
       </div>
     </div>
     <!-- search form -->

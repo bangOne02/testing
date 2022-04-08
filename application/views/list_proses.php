@@ -13,6 +13,10 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 			</tr>
 		</thead>
 		<tbody>
+		<?php 
+		if (($proces == 1 && $table[0]->tglberangkat == null) or ($proces == 2 && $table[0]->tgltiba == null))
+		{
+		?>
 			<tr>
 				<td>1<input type="hidden" value="<?php echo $proces; ?>" name="proces" placeholder="" required></td>
 				<td>
@@ -339,6 +343,9 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 					</textarea>
 			    </td>
 			</tr>
+		<?php
+		}
+		?>
 		</tbody>
 	</table>
 

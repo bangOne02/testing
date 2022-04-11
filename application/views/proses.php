@@ -11,6 +11,8 @@
 			</div>  
 	    </div>
 	    <div class="box-footer">
+	      <div id="qr-reader"></div>
+          <div id="qr-reader-results"></div> 
 	      <button type="button"  id="mulai" class="btn btn-sm btn-primary btn-flat pull-right" style="visibility: hidden;"> SUBMIT</button>
 		</div>
 		

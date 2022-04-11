@@ -26,7 +26,7 @@ class Login extends CI_Controller {
 					'id_admin' 		=> $get_user->id_admin,
 					'password' => $get_user->userpassword,
 					'admin_name' 	=> $get_user->admin_name,
-					'username' => $get_user->admin_name,
+					'username' => $get_user->username,
 					'fk_plant' 	=> $get_user->fk_plant
 				);
 

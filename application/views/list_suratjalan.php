@@ -8,13 +8,14 @@
 		<thead>
 			<tr>
 				<th>NO&nbsp;&nbsp;</th>
-				<th>NOMOR</th>			   
+				<th>NOMOR SURAT JALAN</th>			   
 				<th>NOPOL</th>
 				<th>KENDARAAN</th>
 				<th>DRIVER</th>
 				<th>TANGGAL</th>
 				<th>ASAL</th>
 				<th>TUJUAN</th>
+
 				<th><center>CETAK</center></th>
 				<th><center>PREVIEW</center></th>
 				<?php
@@ -47,7 +48,19 @@
 					<td><?php echo "".strtoupper($row->tanggalberangkat); ?></td>
 					<td><?php echo "".strtoupper($row->asalsj); ?></td>
 					<td><?php echo "".strtoupper($row->tujuan); ?></td>
-					<td><center><a class="btn btn-success btn-sm btn-flat" target="_blank" href="<?php echo base_url('SuratJalan/reportSuratJalan/'.$row->id); ?>"><i class="fa fa-sign-in"></i></a></center></td>
+					<?php
+					$admin_name = $this->session->userdata('admin_name');
+					if ($admin_name == 'admin')
+					{ ?>
+						<td><center><a class="btn btn-success btn-sm btn-flat" target="_blank" href="<?php echo base_url('SuratJalan/reportSuratJalan/'.$row->id); ?>"><i class="fa fa-sign-in"></i></a></center></td>
+					<?php
+					} else
+					{
+					?>
+						<td><center><a class="btn btn-success btn-sm btn-flat" disabled="true" target="_blank" href="<?php echo base_url('SuratJalan/reportSuratJalan/'.$row->id); ?>"><i class="fa fa-sign-in"></i></a></center></td>
+					<?php
+					}
+					?>
 					<td> 
 			            <div class="btn-group-horizontal">
 			              <center><button type="button" class="btn btn-info btn-sm btn-flat call-data-preview" data-toggle="modal" data-target="#modal-preview" data-id="<?php echo $row->id; ?>"><i class="fa fa-eye"></i></button></center>

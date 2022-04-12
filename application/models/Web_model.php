@@ -43,7 +43,7 @@ class Web_model extends CI_Model
         (
             SELECT a.fk_plant 
             FROM tbl_p_keberangkatan kb LEFT JOIN tbl_p_kedatangan kd ON kd.fk_idsj = kb.fk_idsj 
-            LEFT JOIN tbl_admin a ON a.id_admin = kd.updated_by 
+            LEFT JOIN tbl_admin a ON a.id_admin = kd.insert_by 
             WHERE kb.nomorpolisi = k.id ORDER BY kb.id DESC LIMIT 1
         ) AS lokasi,
         (

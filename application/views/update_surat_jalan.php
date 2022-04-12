@@ -240,7 +240,7 @@
                     <input type="hidden" name="size" value="<?php echo $table->size; ?>" required>
                     <input type="hidden" name="id" value="<?php echo $table->id; ?>" required>
                     <input type="hidden" name="jenis" value="<?php echo $table->jenis; ?>" required>
-                    <button type="submit" style="background-color: #005b71; border-color: #005b71;" class="btn btn-sm btn-primary btn-flat pull-right">UPDATE</button>
+                    <button type="submit" id="butn" style="background-color: #005b71; border-color: #005b71;" class="btn btn-sm btn-primary btn-flat pull-right">UPDATE</button>
                 </div>
                 </div>
             </div>

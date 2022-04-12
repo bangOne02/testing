@@ -183,7 +183,7 @@ $(document).ready(function(){
 
 	$('#target-update').on('submit','#form-update-sj', function(e){
 		e.preventDefault();
-
+		$('#butn').prop('disabled', true);
 		$.ajax({
 			url: base_url+"SuratJalan/prosesUpdate",
 			type: 'post',
@@ -200,6 +200,7 @@ $(document).ready(function(){
 				}else{
 				 	toastr.error('Ups..! Update gagal !');
 				}
+				$('#butn').prop('disabled', false);
 			}
 		});
 	});

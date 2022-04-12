@@ -14,7 +14,7 @@
 	    		<div class="form-group">
 	    			<br>
 	    			<label>NOMOR CHASIS</label>
-						<input style="text-transform:uppercase" type="number" class="form-control" name="namachasis" required>
+						<input style="text-transform:uppercase" class="form-control" name="namachasis" required>
 	    		</div>
 	    	</div>
 	    	<div class="col-md-4">

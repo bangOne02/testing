@@ -321,8 +321,8 @@ class Diagram extends CI_Controller {
 	function insertChasis(){
 		// $namadriver = $this->session->userdata('namadriver');
 		$insert = false;
-		$namachasis = $this->input->post('namachasis');
-		$namachasis = "CHASIS".$namachasis;
+		$namachasis = preg_replace('/\s+/', '', $this->input->post('namachasis'));
+		$namachasis = "CHASIS-".$namachasis;
 		$nomorkir = $this->input->post('nomorkir');
 		$masaberlaku = $this->input->post('masaberlaku');
 		if ($masaberlaku != '')

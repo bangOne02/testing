@@ -57,7 +57,7 @@
 					} else
 					{
 					?>
-						<td><center><a class="btn btn-success btn-sm btn-flat" disabled="true" target="_blank" href="<?php echo base_url('SuratJalan/reportSuratJalan/'.$row->id); ?>"><i class="fa fa-sign-in"></i></a></center></td>
+						<td><center><a class="btn btn-success btn-sm btn-flat" disabled="true"><i class="fa fa-sign-in"></i></a></center></td>
 					<?php
 					}
 					?>

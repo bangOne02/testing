@@ -178,32 +178,6 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 					</td>
 				</tr>
 				<tr>
-					<td>9</td>
-					<td>
-						JENIS_MUATAN
-					</td>
-					<td><input style="text-transform:uppercase" class="form-control" name="jenismuatan" value="<?php 
-					if (count($table) != 0) 
-					{ 
-						echo strtoupper($table[0]->jenismuatan); 
-					} 
-					?>"  placeholder="" > </td>
-				</tr>
-				<tr>
-					<td>10</td>
-					<td>
-						BERAT_KOSONG
-					</td>
-					<td><input style="text-transform:uppercase" class="form-control" name="beratkosong" value=""  placeholder="" > </td>
-				</tr>
-				<tr>
-					<td>11</td>
-					<td>
-						BERAT_ISI
-					</td>
-					<td><input style="text-transform:uppercase" class="form-control" name="beratisi" value=""  placeholder="" > </td>
-				</tr>
-				<tr>
 					<td>12</td>
 					<td>
 						GEMBOK
@@ -293,6 +267,32 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 			<?php
 			}
 			?>
+			<tr>
+				<td>9</td>
+				<td>
+					JENIS_MUATAN
+				</td>
+				<td><input style="text-transform:uppercase" class="form-control" name="jenismuatan" value="<?php 
+				if (count($table) != 0) 
+				{ 
+					echo strtoupper($table[0]->jenismuatan); 
+				} 
+				?>"  placeholder="" > </td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>
+					BERAT_KOSONG
+				</td>
+				<td><input style="text-transform:uppercase" class="form-control" name="beratkosong" value=""  placeholder="" > </td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td>
+					BERAT_ISI
+				</td>
+				<td><input style="text-transform:uppercase" class="form-control" name="beratisi" value=""  placeholder="" > </td>
+			</tr>
 			<?php 
 			if ($proces == 1)
 			{ 

@@ -216,18 +216,7 @@
 						<td>NOMOR KIR</td>
 						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->nokir);?></td>
 				</tr> -->
-				<tr>
-						<td>JENIS MUATAN</td>
-						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kjenismuatan);?></td>
-				</tr>
-				<tr>
-						<td>BERAT KOSONG</td>
-						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kberatkosong);?></td>
-				</tr>
-				<tr>
-						<td>BERAT ISI</td>
-						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kberatisi);?></td>
-				</tr>
+				
 				<tr>
 						<td>GEMBOK</td>
 						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kgembok);?></td>
@@ -252,8 +241,18 @@
 			<?php
 			}	
 			?>
-
-			
+			<tr>
+					<td>JENIS MUATAN</td>
+					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kjenismuatan);?></td>
+			</tr>
+			<tr>
+					<td>BERAT KOSONG</td>
+					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kberatkosong);?></td>
+			</tr>
+			<tr>
+					<td>BERAT ISI</td>
+					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kberatisi);?></td>
+			</tr>
 			<tr>
 					<td>KILOMETER AWAL</td>
 					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kmawal);?></td>
@@ -333,18 +332,7 @@
 						<td>NOMOR KIR</td>
 						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->nokir);?></td>
 				</tr> -->
-				<tr>
-						<td>JENIS MUATAN</td>
-						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->djenismuatan);?></td>
-				</tr>
-				<tr>
-						<td>BERAT KOSONG</td>
-						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->dberatkosong);?></td>
-				</tr>
-				<tr>
-						<td>BERAT ISI</td>
-						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->dberatisi);?></td>
-				</tr>
+				
 				<tr>
 						<td>GEMBOK</td>
 						<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->dgembok);?></td>
@@ -369,6 +357,18 @@
 			<?php
 			}	
 			?>
+			<tr>
+					<td>JENIS MUATAN</td>
+					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->djenismuatan);?></td>
+			</tr>
+			<tr>
+					<td>BERAT KOSONG</td>
+					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->dberatkosong);?></td>
+			</tr>
+			<tr>
+					<td>BERAT ISI</td>
+					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->dberatisi);?></td>
+			</tr>
 			<tr>
 					<td>KILOMETER AKHIR</td>
 					<td><?php echo "<b style='color:#337ab7'>".strtoupper($hasil[0]->kmakhir);?></td>

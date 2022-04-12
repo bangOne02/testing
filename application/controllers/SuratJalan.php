@@ -878,7 +878,7 @@ class SuratJalan extends CI_Controller {
 			LEFT JOIN tbl_plant pt ON pt.`id_mplant` = s.`tujuan`
 			LEFT JOIN tbl_kendaraan k ON k.id = s.kendaraan
 			LEFT JOIN tbl_p_kendaraan pk ON pk.fk_idsj = s.nomorsj
-			WHERE s.nomorsj NOT IN (SELECT id_sj FROM tbl_detail_biaya) AND s.active = 0 AND s.tanggalberangkat > '2021-11-07' 
+			WHERE s.active = 0 AND s.tanggalberangkat > '2021-11-07' 
 			")->result();
 		$data['data_detail'] = $dataDetail;
 		$output = array(

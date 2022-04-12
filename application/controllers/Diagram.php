@@ -141,7 +141,7 @@ class Diagram extends CI_Controller {
 		$id_plant = $this->input->post('id');
 		$data['table'] = $this->M_codeigniter->query("
 			SELECT *
-			FROM tbl_driver
+			FROM tbl_driver where active = 0
 		")->result();
 		$output = array(
 			'html' => $this->load->view('list_sopir', $data, true),
@@ -395,8 +395,8 @@ class Diagram extends CI_Controller {
 		$data_send_1 = array(
 				'active' 	=> 1,
 			);
-		$delete = $this->M_codeigniter->update('tbl_driver', array('id_mdriver' => $id_driver));
-		//$delete = $this->M_codeigniter->update('tbl_chasis', $data_send_1, array('id' => $id));
+	//	$delete = $this->M_codeigniter->update('tbl_driver', array('id_mdriver' => $id_driver));
+		$delete = $this->M_codeigniter->update('tbl_driver', $data_send_1, array('id_mdriver' => $id_driver));
 
 		// echo $this->db->last_query();
 		if($delete){

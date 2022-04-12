@@ -299,7 +299,7 @@
 	    </div>
 	    <!-- /.box-body -->
 	    <div class="box-footer">
-	      <button type="submit" style="background-color: #005b71; border-color: #005b71;" class="btn btn-sm btn-primary btn-flat pull-right">SIMPAN</button>
+	      <button type="submit" id="buttn" style="background-color: #005b71; border-color: #005b71;" class="btn btn-sm btn-primary btn-flat pull-right">SIMPAN</button>
 	    </div>
 	  </form>
 	</div>

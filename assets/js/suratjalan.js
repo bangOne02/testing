@@ -184,6 +184,7 @@ $(document).ready(function(){
 	});
 
 	$('#form_add_1').submit(function(e){
+		$('#buttn').prop('disabled', true);
 		e.preventDefault();
 		$.ajax({
 			url: base_url+"SuratJalan/insertData",
@@ -200,6 +201,7 @@ $(document).ready(function(){
 				}else{
 					toastr.error('Ups..! Insert gagal !');
 				}
+				$('#buttn').prop('disabled', false);
 			}
 		});
 	});

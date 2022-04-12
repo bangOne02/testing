@@ -88,6 +88,53 @@ $(document).ready(function(){
 		});
 	});
 
+	function docReady(fn) {
+		// see if DOM is already available
+		if (document.readyState === "complete" || document.readyState === "interactive") {
+			// call on next available tick
+			setTimeout(fn, 50);
+		} else {
+			document.addEventListener("DOMContentLoaded", fn);
+		}
+	}
+
+	docReady(function () {
+		var resultContainer = document.getElementById('qr-reader-results');
+		var lastResult, countResults = 0;
+		function onScanSuccess(decodedText, decodedResult) {
+			//alert(decodedText);
+			html5QrcodeScanner.clear().then(_ => {
+			}).catch(error => {
+			});
+			
+			for (var i = 0; i < decodedText.length; i++) {
+				// task(i,decodedText);
+			}
+
+			function task(i,decodedText) {
+				setTimeout(function() {
+					var elem = document.getElementById('nosj');
+					//elem.focus();
+					var old  = elem.value;
+					elem.value = old + decodedText.charAt(i);
+				}, 10 * i);
+			}
+
+			submit1(decodedText);
+			
+		}
+
+		function submit1(decodedText) {
+			document.getElementById('nosj').value = decodedText;
+			$('#mulai').click();
+			stats = 0;
+		}
+
+		var html5QrcodeScanner = new Html5QrcodeScanner(
+			"qr-reader", { fps: 10, qrbox: 250 });
+		html5QrcodeScanner.render(onScanSuccess);
+	});
+
 	$('#mulai2').click(function(){
 		var $nosj = $('#nosj').val();
 		var $proces = $('#proces').val();

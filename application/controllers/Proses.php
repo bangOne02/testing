@@ -303,7 +303,7 @@ class Proses extends CI_Controller{
 
 				  if ($jnscontainer == 0)
 				  {
-					  if (strlen($nocontainer) > 5)
+					  if (strlen($nocontainer) > 8)
 					  {
 				  		$data_send_1 = array(
 						      'container' => $nocontainer
@@ -312,6 +312,14 @@ class Proses extends CI_Controller{
 						$insert = $this->M_codeigniter->insert('tbl_container_rent', $data_send_1);
 						$id = $this->db->insert_id();
 				  		$nocontainer = $id;
+					  } else
+					  {
+						$data_send_1 = array(
+							'container' => $nocontainer
+					 	);
+
+					 	$insert = $this->M_codeigniter->insert('tbl_container_e', $data_send_1);
+						$nocontainer = 0; 
 					  }
 				  }	
 

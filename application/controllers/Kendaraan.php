@@ -278,7 +278,7 @@ class Kendaraan extends CI_Controller {
 		$nocontainer = $this->input->post('nocontainer');
 		$data['table'] = $this->M_codeigniter->query("SELECT *,IFNULL(p.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,sj.tujuan))) as tujuann FROM tbl_suratjalan sj LEFT JOIN tbl_pelabuhan p ON p.`id_mpelabuhan` = sj.`tujuan`
 		LEFT JOIN tbl_depo dp ON dp.id_mdepo = sj.`tujuan` 
-		LEFT JOIN tbl_plant pt ON pt.`id_mplant` = sj.`tujuan`  WHERE sj.nocontainer = '".$nocontainer."'")->result();
+		LEFT JOIN tbl_plant pt ON pt.`id_mplant` = sj.`tujuan`  WHERE sj.nocontainer = '".$nocontainer."' and sj.active = 0")->result();
 		$output = array(
 			'html' => $this->load->view('list_muatan', $data, true),
 		);

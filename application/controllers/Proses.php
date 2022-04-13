@@ -221,6 +221,10 @@ class Proses extends CI_Controller{
 			$nopol = $this->input->post('nopol');
 			$temperatur = $this->input->post('temperatur');
 			$nocontainer = $this->input->post('nocontainer');
+			if ($nocontainer == '')
+			{
+				$nocontainer = 0;
+			}
 			$keterangan = $this->input->post('keterangan');
 
 

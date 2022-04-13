@@ -193,14 +193,16 @@ $(document).ready(function(){
 			contentType : false,
 			processData : false,
 			success:function(data){
+				$('#butn').prop('disabled', false);
 				if(data['status'] == 1){
-					list();
+					
 				 	$('#modal-update').modal('hide');
 				 	toastr.success('Update berhasil');
+					list(); 
 				}else{
 				 	toastr.error('Ups..! Update gagal !');
 				}
-				$('#butn').prop('disabled', false);
+				
 			}
 		});
 	});

@@ -1253,7 +1253,8 @@ class SuratJalan extends CI_Controller {
 			'gembok' => $gembok,
 			'segelpelayaran' => $segelpelayaran,
 			'segelbeacukai' => $segelbeacukai,
-			'jenis' => $jenis
+			'jenis' => $jenis,
+			'created_by' => $id_admin
 		);
 
 		$insert = $this->M_codeigniter->insert('tbl_suratjalan', $data_send_1);
@@ -1285,8 +1286,8 @@ class SuratJalan extends CI_Controller {
 	}
 
 	function prosesUpdate(){
-		$id_admin = $this->session->userdata('id_admin');
 
+		$id_admin = $this->session->userdata('id_admin');
 		$idsj = $this->input->post('id');
 		$nomorsj = $this->input->post('nomorsj');
 		$nomorsj = substr($nomorsj,6);
@@ -1361,7 +1362,9 @@ class SuratJalan extends CI_Controller {
 			'gembok' => $gembok,
 			'segelpelayaran' => $segelpelayaran,
 			'segelbeacukai' => $segelbeacukai,
-			'jenis' => $jenis
+			'jenis' => $jenis,
+			'updated_by' => $id_admin,
+			'ref' => $idsj
 		);
 
 		$insert = $this->M_codeigniter->insert('tbl_suratjalan', $data_send_1);

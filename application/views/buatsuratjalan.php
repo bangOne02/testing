@@ -20,7 +20,7 @@
   margin: 12px 0;
   cursor: pointer;
   position: relative;">
-						  <input type="radio" id="u" name="jenis" value="0" style="margin: 0px 0 0;"><span class="circle" ></span><span class="text" style="color: var(--second-color);
+						  <input type="radio" id="u" name="jenis" value="0" checked style="margin: 0px 0 0;"><span class="circle" ></span><span class="text" style="color: var(--second-color);
   font-weight: bold;">&nbsp;EXPORT</span>
 						<!--   <label for="male">KECIL</label><br>
 						  <input type="radio" id="female" name="gender" value="female">

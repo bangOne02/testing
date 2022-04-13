@@ -369,7 +369,7 @@ class SuratJalan extends CI_Controller {
 			LEFT JOIN tbl_p_keberangkatan pb ON pb.fk_idsj = s.id 
 			LEFT JOIN tbl_kendaraan kk ON kk.id = pb.nomorpolisi
 			LEFT JOIN tbl_driver db ON db.`id_mdriver` = pb.namasopir
-			WHERE s.active = 0 AND pk.tglberangkat > '2021-10-07' AND s.id NOT IN (SELECT id_sj FROM tbl_detail_biaya)		
+			WHERE s.active = 0 AND pb.tglberangkat > '2021-10-07' AND s.id NOT IN (SELECT id_sj FROM tbl_detail_biaya)		
 			")->result();
 		} else
 		{
@@ -384,7 +384,7 @@ class SuratJalan extends CI_Controller {
 			LEFT JOIN tbl_p_keberangkatan pb ON pb.fk_idsj = s.id 
 			LEFT JOIN tbl_kendaraan kk on kk.id = pb.nomorpolisi
 			LEFT JOIN tbl_driver db ON db.`id_mdriver` = pb.namasopir
-			WHERE s.active = 0 AND pk.tglberangkat = '".$id_plant."' AND s.id NOT IN (SELECT id_sj FROM tbl_detail_biaya)
+			WHERE s.active = 0 AND pb.tglberangkat = '".$id_plant."' AND s.id NOT IN (SELECT id_sj FROM tbl_detail_biaya)
 			")->result();
 		}	
 

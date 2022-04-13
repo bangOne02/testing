@@ -215,7 +215,7 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 								<select class="form-control select2" id="container" name="nocontainer" style="color: black">
 									<?php 
 									$selected = false; 
-									echo "<option value=null>&nbsp;</option>";
+									echo "<option value=0>&nbsp;</option>";
 									foreach($container as $row){
 										if ($row->id === $table[0]->nocontainer) {
 											$selected = true;

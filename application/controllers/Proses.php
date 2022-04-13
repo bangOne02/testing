@@ -401,6 +401,10 @@ class Proses extends CI_Controller{
 		  $beratisi = $this->input->post('beratisi');
 		  $gembok = $this->input->post('gembok');
 		  $container = $this->input->post('container');
+		  if ($container == '')
+		  {
+			  $container = 0;
+		  }
 		  $segelpelayaran = $this->input->post('segelpelayaran');
 		  $segelbeacukai = $this->input->post('segelbeacukai');
 		  $temperatur = $this->input->post('temperatur');

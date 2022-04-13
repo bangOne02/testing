@@ -11,7 +11,7 @@
       <div class="box-header" style="height: 39px;background: white;color: black;">
               <div class="table-wrapper" style="display: flex;margin-left: -13px;align-items: center;position: initial;border: ridge;margin-right: -12px;">
                     <span class="date-label" style="
-    font-family: 'FontAwesome';margin-top: 1px;">&nbsp;&nbsp;&nbsp;TANGGAL &nbsp; </span><input autocomplete="off" class="date" data-date-format="dd-mm-yyyy" type="date" id="tanggal" style="height: initial;margin-top: 2px;margin-bottom: 2px;" />
+    font-family: 'FontAwesome';margin-top: 1px;">&nbsp;&nbsp;&nbsp;TANGGAL &nbsp; </span><input autocomplete="off" class="date" data-date-format="dd-mm-yyyy" type="date" id="tanggal" style="height: initial;margin-top: 2px;margin-bottom: 2px;background: aqua;" />
                           &nbsp;&nbsp;&nbsp;&nbsp;
                           <button type="button" id="btn-tgl" data-toggle="modal" style="padding: 0px 14px;">SUBMIT</button> 						            
               </div>
@@ -73,7 +73,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN01<br><?php echo $kendaraan1->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;" >
 
 
           <?php 
@@ -166,7 +166,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN02<br><?php echo $kendaraan2->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;">
 
 
           <?php 
@@ -257,7 +257,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN03<br><?php echo $kendaraan3->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;">
 
 
           <?php 
@@ -348,7 +348,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN04<br><?php echo $kendaraan4->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;">
 
 
           <?php 
@@ -439,7 +439,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN05<br><?php echo $kendaraan5->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;">
 
 
           <?php 
@@ -530,7 +530,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN06<br><?php echo $kendaraan6->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events">
+      <div class="events" style="background: #fff1f8;">
 
 
           <?php 
@@ -621,7 +621,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAAN07<br><?php echo $kendaraan7->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;" >
 
 
           <?php 
@@ -712,7 +712,7 @@
     color: azure;
 ">&nbsp;&nbsp;GRAB/GOJEK&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;">
           <?php 
             foreach ($kend8 as $row) { 
                 $staty = 0;
@@ -801,7 +801,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAANLMG1<br><?php echo $kendaraan8->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;">
           <?php 
             foreach ($kend9 as $row) { 
                 $staty = 0;
@@ -890,7 +890,7 @@
     color: azure;
 ">&nbsp;&nbsp;KENDARAANLMG2<br><?php echo $kendaraan9->nopol; ?>&nbsp;&nbsp;</center></p>
       </div>
-      <div class="events" >
+      <div class="events" style="background: #fff1f8;">
           <?php 
             foreach ($kend10 as $row) { 
                 $staty = 0;

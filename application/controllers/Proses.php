@@ -220,7 +220,7 @@ class Proses extends CI_Controller{
 			$namadriver = $this->input->post('namadriver');
 			$nopol = $this->input->post('nopol');
 			$temperatur = $this->input->post('temperatur');
-			$nocontainer = $this->input->post('nocontainer');
+			$nocontainer = strtoupper(preg_replace('/\s+/', '', $this->input->post('nocontainer')));;
 			if ($nocontainer == '')
 			{
 				$nocontainer = 0;
@@ -409,7 +409,7 @@ class Proses extends CI_Controller{
 		  $beratkosong = $this->input->post('beratkosong');
 		  $beratisi = $this->input->post('beratisi');
 		  $gembok = $this->input->post('gembok');
-		  $container = $this->input->post('container');
+		  $container = strtoupper(preg_replace('/\s+/', '', $this->input->post('container')));
 		  if ($container == '')
 		  {
 			  $container = 0;
@@ -503,12 +503,21 @@ class Proses extends CI_Controller{
 			{
 				if (strlen($container) > 8)
 				{
+				  $ex = $this->M_codeigniter->get_where('tbl_container_rent' , array('container' => $container));
+
+				  if ($ex->num_rows() > 0)
+				  {
+					 $getsj = $ex->result()[0];
+					 $idd = $getsj->id;		
+				  } else
+				  {
 					$data_send_1 = array(
 						'container' => $container
-				  );
+					);
+					$insert = $this->M_codeigniter->insert('tbl_container_rent', $data_send_1);
+					$idd = $this->db->insert_id();
+				  }
 
-				  $insert = $this->M_codeigniter->insert('tbl_container_rent', $data_send_1);
-				  $idd = $this->db->insert_id();
 				  $container = $idd;
 				} else
 				{

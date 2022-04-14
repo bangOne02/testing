@@ -13,11 +13,8 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 		</thead>
 		<tbody>
 		<?php 
-		echo $proces;
 		if ($proces == 1) 
 		{ 
-			if ($table[0]->tglberangkat != null)
-			{	
 		?>
 			<tr>
 				<td>1<input type="hidden" value="<?php echo $proces; ?>" name="proces" placeholder="" required>
@@ -308,11 +305,9 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 				</td>
 			</tr>
 		<?php
-		  }
+		
 		} else
-		{ 
-		  if ($table[0]->tgltiba != null)
-		  {		
+		{ 	
 		?>
 			<tr>
 				<td>1<input type="hidden" value="<?php echo $proces; ?>" name="proces" placeholder="" required>
@@ -489,17 +484,35 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 					<td>
 						NOMOR CONTAINER
 					</td>
-					<td><input disabled="true" style="text-transform:uppercase" class="form-control" name="" value="<?php 
+					<td>
+					<input disabled="true" style="text-transform:uppercase" class="form-control" name="" value="<?php 
 					if (count($table) != 0) 
 					{ 
 						echo strtoupper($table[0]->container); 
 					} 
 					?>"  placeholder="" > </td>
 					<td>
+					    <?php
+							if ( $table[0]->nocontainer == '' and $table[0]->jenis == 3)
+							{
+						?>
+								<input style="text-transform:uppercase" class="form-control" name="container" value="" placeholder="" > 
+								<input type="hidden" name="jnscontainer" value="0" required>
+
+						<?php
+							} else if ( $table[0]->nocontainer == '' and $table[0]->jenis == 1)
+							{
+						?>	
+								<input style="text-transform:uppercase" class="form-control" name="container" value="" placeholder="" > 
+								<input type="hidden" name="jnscontainer" value="0" required>
+						<?php
+							} else
+							{
+						?>
 								<select class="form-control select2" id="container" name="container" style="color: black">
 									<?php 
 									$selected = false; 
-									echo "<option value=null>&nbsp;</option>";
+									echo "<option value=0>&nbsp;</option>";
 									foreach($container as $row){
 										if ($row->id == $table[0]->nocontainer) {
 											$selected = true;
@@ -507,10 +520,13 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 										}else{
 											echo "<option value='".$row->id."'>".$row->container."</option>";
 										}
-											
 									} 			
 									?>
 								</select>
+					    		<input type="hidden" name="jnscontainer" value="1" required>
+						<?php		
+							}
+						?>	
 					</td>
 				</tr>
 				<tr>
@@ -603,7 +619,6 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 				</td>
 			</tr>
 		<?php
-		  }
 		}
 		?>
 		</tbody>

@@ -7,7 +7,7 @@
 	  </div>
 	    <div class="box-body">
 	    	<div class="col-md-12">
-	    	    <label>NOMOR SURAT JALAN</label><input disabled class="form-control" id="nosj" value="<?php echo $nosj; ?>" name="nomorsj" placeholder="isi nomor surat jalan..." required> 
+	    	    <label>NOMOR SURAT JALAN</label><input readonly="true" class="form-control" id="nosj" value="<?php echo $nosj; ?>" name="nomorsj" placeholder="isi nomor surat jalan..." required> 
 				<input disabled type="hidden" class="form-control" id="proces" value="<?php echo $proces; ?>" name="proces" required>
 	    	</div>  
 	    </div>

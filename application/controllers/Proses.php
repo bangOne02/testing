@@ -148,7 +148,7 @@ class Proses extends CI_Controller{
 		if ($proses == 1)
 		{
 			$data['table'] = $this->M_codeigniter->query("
-			SELECT sj.id as idjs,sj.nomorsj,sj.size,kb.*,dd.nama_mdriver,kk.nopol,cc.container,ch.chasis,sj.proses       
+			SELECT sj.id as idjs,sj.nomorsj,sj.size,kb.*,dd.nama_mdriver,kk.nopol,cc.container,ch.chasis,sj.proses,sj.jenis,sj.nocontainer       
 					FROM tbl_suratjalan sj 
 					LEFT JOIN tbl_p_keberangkatan kb ON kb.fk_idsj = sj.id
 					LEFT JOIN tbl_driver dd ON dd.id_mdriver = kb.namasopir
@@ -160,7 +160,7 @@ class Proses extends CI_Controller{
 		} else
 		{
 			$data['table'] = $this->M_codeigniter->query("
-			SELECT sj.id as idsj,sj.nomorsj,sj.size,kb.*,dd.nama_mdriver,kk.nopol,cc.container,ch.chasis,sj.proses       
+			SELECT sj.id as idsj,sj.nomorsj,sj.size,kb.*,dd.nama_mdriver,kk.nopol,cc.container,ch.chasis,sj.proses,sj.jenis,sj.nocontainer       
 					FROM tbl_suratjalan sj 
 					LEFT JOIN tbl_p_kedatangan kb ON kb.fk_idsj = sj.id
 					LEFT JOIN tbl_driver dd ON dd.id_mdriver = kb.namasopir
@@ -238,29 +238,32 @@ class Proses extends CI_Controller{
 
 				  if ($get_proses->jenis == 0 or $get_proses->jenis == 3)
 				  {
-					  if ($get_proses->nocontainer != '')
+					  if ($nocontainer != '')
 					  {
 						  $data = array(
 							'active' => 1
 						  );
 		
 						  $where = array(
-							'id' => $get_proses->nocontainer
+							'id' => $nocontainer
 						  );
 		
 						  $this->M_codeigniter->update('tbl_container_rent',$data,$where);
 					  }
 				  }
 
-	      		  $data = array(
-					'proses' => 1
-				  );
-
-				  $where = array(
-					'id' => $get_proses->id
-				  );
-
-	    		  $this->M_codeigniter->update('tbl_suratjalan',$data,$where);
+				  if ($get_proses->proses < 2)
+				  {
+					  $data = array(
+						'proses' => 1
+					  );
+	
+					  $where = array(
+						'id' => $get_proses->id
+					  );
+					  $this->M_codeigniter->update('tbl_suratjalan',$data,$where);
+				  }
+	    		 // $this->M_codeigniter->update('tbl_suratjalan',$data,$where);
 
 			      $data_send_1 = array(
 	 				  'tglberangkat' => $tanggalkeluar,
@@ -288,6 +291,7 @@ class Proses extends CI_Controller{
 				  );
 
     			  $update = $this->M_codeigniter->update('tbl_p_keberangkatan',$data_send_1,$where_send_1);	
+				  
 
     			  if($update)
 	              {
@@ -393,6 +397,11 @@ class Proses extends CI_Controller{
 		  $status = 0;
 		  $proces = $this->input->post('proces');
 		  $id = $this->input->post('id');
+		  $nomorsj = $this->input->post('nomorsj');
+		  $statusproses = $this->M_codeigniter->get_where('tbl_suratjalan' , array('nomorsj' => $nomorsj));	
+		  $get_proses = $statusproses->result()[0];	
+		  $admin_name = $this->session->userdata('admin_name');	
+		  $id_admin = $this->session->userdata('id_admin');
 		  $nopol = $this->input->post('nopol');
 		  $driver = $this->input->post('driver');
 		  $chasis = $this->input->post('chasis');
@@ -416,6 +425,36 @@ class Proses extends CI_Controller{
 			$jamberangkat = $this->input->post('jamberangkat');
 			$kmawal = $this->input->post('kmawal');
 			$pic1 = $this->input->post('pic1');
+			if ($get_proses->jenis == 0 or $get_proses->jenis == 3)
+			{
+				if ($container != 0)
+				{
+					$data = array(
+						'active' => 1
+					);
+
+					$where = array(
+						'id' => $container
+					);
+
+					$this->M_codeigniter->update('tbl_container_rent',$data,$where);
+				}
+			}
+
+			if ($get_proses->proses < 2)
+			{
+				$data = array(
+				'proses' => 1
+				);
+
+				$where = array(
+				'id' => $get_proses->id
+				);
+
+				$this->M_codeigniter->update('tbl_suratjalan',$data,$where);
+			}
+
+
 			$exist = $this->M_codeigniter->get_where('tbl_p_keberangkatan' , array('id' => $id));
 
 			if ($exist->num_rows() > 0)
@@ -437,7 +476,7 @@ class Proses extends CI_Controller{
 						'nocontainer' => $container,
 						'pic1' => $pic1,
 						'keterangan' => $keterangan,
-						'updated_by' => $id_admin,
+						'insert_by' => $id_admin,
 						'updated_at' => date('Y-m-d H:i:s')
 					);
 
@@ -458,6 +497,40 @@ class Proses extends CI_Controller{
 			$jammasuk = $this->input->post('jamtiba');
 			$kmakhir = $this->input->post('kmakhir');
 			$pic2 = $this->input->post('pic2');
+			$jnscontainer = $this->input->post('jnscontainer');
+
+			if ($jnscontainer == 0)
+			{
+				if (strlen($container) > 8)
+				{
+					$data_send_1 = array(
+						'container' => $container
+				  );
+
+				  $insert = $this->M_codeigniter->insert('tbl_container_rent', $data_send_1);
+				  $idd = $this->db->insert_id();
+				  $container = $idd;
+				} else
+				{
+				  $data_send_1 = array(
+					  'container' => $container
+				  );
+
+				  $insert = $this->M_codeigniter->insert('tbl_container_e', $data_send_1);
+				  $container = 0; 
+				}
+			}	
+
+			$data = array(
+			'proses' => 2
+			);
+
+			$where = array(
+			'id' => $get_proses->id
+			);
+
+			$this->M_codeigniter->update('tbl_suratjalan',$data,$where);
+
 			$exist = $this->M_codeigniter->get_where('tbl_p_kedatangan' , array('id' => $id));
 
 			if ($exist->num_rows() > 0)
@@ -479,7 +552,7 @@ class Proses extends CI_Controller{
 						'nocontainer' => $container,
 						'pic2' => $pic2,
 						'keterangan' => $keterangan,
-						'updated_by' => $id_admin,
+						'insert_by' => $id_admin,
 						'updated_at' => date('Y-m-d H:i:s')
 					);
 

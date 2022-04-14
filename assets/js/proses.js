@@ -14,6 +14,7 @@ $(document).ready(function(){
 	});
 
 	$('#nomorsuratjalan').html('NOT FOUND');
+	$('#asal').html('NOT FOUND');
 	$('#tujuan').html('NOT FOUND');
 	$('#keterangan').html('NOT FOUND');
 	$('#list_table').hide();
@@ -57,12 +58,13 @@ $(document).ready(function(){
 			    if(data[0] != undefined)
 			    {
 			    	list(); 
-					list2(); 
+					//list2(); 
 					var _resp = data[0];
 					//console.log(_resp.nomorsj);
 
 					$('#nomorsuratjalan').html(_resp.nomorsj.toUpperCase());
 					$('#nosuratjalan').val(_resp.nomorsj);
+					$('#asal').html(_resp.asalsj.toUpperCase());
 					$('#tujuan').html(_resp.ktujuan.toUpperCase());
 					$('#keterangan').html(_resp.keterangan.toUpperCase());
 					$('#selesai').removeAttr('disabled');
@@ -72,6 +74,7 @@ $(document).ready(function(){
 			    } else
 			    {
 			    	$('#nomorsuratjalan').html('NOT FOUND');
+					$('#asal').html('NOT FOUND');
 					$('#tujuan').html('NOT FOUND');
 					$('#keterangan').html('NOT FOUND');
 			    	$('#list_table').hide();

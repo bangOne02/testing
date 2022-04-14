@@ -37,6 +37,16 @@
 					    			<input class="form-control"  id="nosuratjalan" name="nosuratjalan" type="hidden">
 					    		</td>
 					    	</tr>
+							<tr>
+					    		<td>&nbsp;</td>
+					    		<td>&nbsp;</td>
+					    		<td>&nbsp;</td>
+					    	</tr>
+					    	<tr>
+					    		<td>ASAL</td>
+					    		<td>&nbsp;&nbsp;:&nbsp;&nbsp;</td>
+					    		<td><p id="asal" style="margin: 0 0 0px;"></p></td>
+					    	</tr>
 					    	<tr>
 					    		<td>&nbsp;</td>
 					    		<td>&nbsp;</td>
@@ -62,9 +72,7 @@
                  
               </div>
       </div>	
-	  <div class="box-footer" >	
-	  	<button type="submit" id="selesai" disabled="true" class="btn btn-sm btn-primary btn-flat pull-right">SIMPAN</button>&nbsp;&nbsp;
-	  </div>
+	  
 	</div> 
 	 </form>
 </div>

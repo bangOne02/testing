@@ -43,18 +43,19 @@
                             <input readonly="true" style="text-transform:uppercase" placeholder="" class="form-control" value="<?php echo $table->nomorsj; ?>" autocomplete="off" name="nomorsj" required>
                     </div>
                 </div>
-                <div class="col-md-12">
+                <input type="hidden" class="form-control" value="<?php echo $table->asalsj; ?>" name="asal" required> 
+                <!-- <div class="col-md-12">
                     <div class="form-group">
                         <br>
                         <label>ASAL SURAT JALAN</label>
                             <select class="form-control" name="asal" style="color: black">
                                     <option value="surabaya">SURABAYA</option>
-                                    <option value="lamongan">LAMONGAN</option>
+                                    <option value="lamongan" >LAMONGAN</option>
                                     <option value="dampit">DAMPIT</option>
                                     <option value="lampung">LAMPUNG</option> 
                             </select>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-6">
                     <div class="form-group">
                         <br>

@@ -61,7 +61,7 @@ class Proses extends CI_Controller{
 		$data['table'] = $this->M_codeigniter->query("
 			  SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          p.`nama_mpelabuhan` AS tujuan,sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
-			  kb.tglberangkat,kd.tgltiba
+			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2
 			  FROM tbl_suratjalan sj 
 	          JOIN tbl_pelabuhan p ON p.`id_mpelabuhan` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
@@ -75,7 +75,7 @@ class Proses extends CI_Controller{
 	          UNION
 	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          p.`nama_mdepo` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
-			  kb.tglberangkat,kd.tgltiba
+			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2
 	          FROM tbl_suratjalan sj 
 	          JOIN tbl_depo p ON p.`id_mdepo` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
@@ -89,7 +89,7 @@ class Proses extends CI_Controller{
 	          UNION
 	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          p.`nama_mplant` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
-			  kb.tglberangkat,kd.tgltiba
+			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2
 	          FROM tbl_suratjalan sj 
 	          JOIN tbl_plant p ON p.`id_mplant` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
@@ -103,7 +103,7 @@ class Proses extends CI_Controller{
 	          UNION
 	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          sj.`tujuan` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
-			  kb.tglberangkat,kd.tgltiba
+			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2
 	          FROM tbl_suratjalan sj 
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
 	          LEFT JOIN tbl_jenis_kendaraan j ON k.jenis = j.id

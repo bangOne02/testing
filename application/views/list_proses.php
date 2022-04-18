@@ -178,17 +178,17 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 						?>
 								<select class="form-control select2" id="container" name="nocontainer" style="color: black">
 									<?php 
-								//	$selected = false; 
+									$selected = false; 
 									echo "<option value=0>&nbsp;</option>";
 									foreach($container as $row){
-										// if ($row->id === $table[0]->nocontainer) {
-										// 	$selected = true;
-										// 	echo "<option value='".$row->id."' selected>".$row->container."</option>";
-										// }else{
+										 if ($row->id === $table[0]->nocontainer) {
+										 	$selected = true;
+										 	echo "<option value='".$row->id."' selected>".$row->container."</option>";
+										 }else{
 											echo "<option value='".$row->id."'>".$row->container."</option>";
-									//	}
+										}
 									} 
-								//	if ($selected == false){echo "<option value='".$table[0]->nocontainer."' selected>".$table[0]->nocontainer."</option>";}				
+									if ($selected == false){echo "<option value='".$table[0]->nocontainer."' selected>".$table[0]->nocontainer."</option>";}				
 									?>
 					    		</select>
 					    		<input type="hidden" name="jnscontainer" value="1" required>

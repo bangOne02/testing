@@ -80,17 +80,17 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 
 					<select class="form-control select2" id="nopol" name="nopol" style="color: black">
 									<?php 
-								//	$selected = false; 
+									$selected = false; 
 
 									foreach($kendaraan as $row){
-										// if ($row->id == $table[0]->kendaraan) {
-										// 	$selected = true;
-										// 	echo "<option value='".$row->id."' selected>".$row->nopol."</option>";
-										// }else{
+										 if ($row->id == $table[0]->kendaraan) {
+										 	$selected = true;
+										 	echo "<option value='".$row->id."' selected>".$row->nopol."</option>";
+										 }else{
 											echo "<option value='".$row->id."'>".$row->nopol."</option>";
-										// }
+										 }
 									} 
-								//	if ($selected == false){echo "<option value='".$table[0]->kendaraan."' selected>".$table[0]->kendaraan."</option>";}				
+									if ($selected == false){echo "<option value='".$table[0]->kendaraan."' selected>".$table[0]->kendaraan."</option>";}				
 									?>
 					</select>
 
@@ -107,16 +107,16 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 				<td>
 				    <select class="form-control select2" id="driver" name="namadriver" style="color: black">
 				    			<?php 
-								//$selected = false;
+								$selected = false;
 								foreach($driver as $row){
-									// if ($row->id_mdriver == $table[0]->driver) {
-									// 	$selected = true;
-									// 	echo "<option value='".$row->id_mdriver."' selected>".strtoupper($row->nama_mdriver)."</option>";
-									// }else{
+									 if ($row->id_mdriver == $table[0]->driver) {
+									 	$selected = true;
+									 	echo "<option value='".$row->id_mdriver."' selected>".strtoupper($row->nama_mdriver)."</option>";
+									 }else{
 										echo "<option value='".$row->id_mdriver."'>".strtoupper($row->nama_mdriver)."</option>";
-								//	}
+									}
 								} 						
-							//	if ($selected == false){echo "<option value='".$table[0]->driver."' selected>".strtoupper($table[0]->driver)."</option>";}				
+								if ($selected == false){echo "<option value='".$table[0]->driver."' selected>".strtoupper($table[0]->driver)."</option>";}				
 								?>
 				    </select>
 			    </td>
@@ -133,16 +133,16 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 					<td> 
 						<select class="form-control select2" id="chasis" name="namachasis" style="color: black">
 									<?php 
-								//	$selected = false;
+									$selected = false;
 									foreach($chasis as $row){
-										// if ($row->id == $table[0]->sasis) {
-										// 	$selected = true;
-										// 	echo "<option value='".$row->id."' selected>".strtoupper($row->chasis)."</option>";
-										// }else{
+										 if ($row->id == $table[0]->sasis) {
+										 	$selected = true;
+										 	echo "<option value='".$row->id."' selected>".strtoupper($row->chasis)."</option>";
+										 }else{
 											echo "<option value='".$row->id."'>".strtoupper($row->chasis)."</option>";
-									//	}
+										}
 									} 
-								//	if ($selected == false){echo "<option value='".$table[0]->sasis."' selected>".strtoupper($table[0]->sasis)."</option>";}				
+									if ($selected == false){echo "<option value='".$table[0]->sasis."' selected>".strtoupper($table[0]->sasis)."</option>";}				
 									?>
 					    </select>			
 					</td>

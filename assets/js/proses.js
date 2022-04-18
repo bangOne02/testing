@@ -60,12 +60,19 @@ $(document).ready(function(){
 			    	list(); 
 					//list2(); 
 					var _resp = data[0];
-					//console.log(_resp.nomorsj);
+				//	console.log(_resp.ktujuan.toUpperCase());
 
 					$('#nomorsuratjalan').html(_resp.nomorsj.toUpperCase());
 					$('#nosuratjalan').val(_resp.nomorsj);
-					$('#asal').html(_resp.asalsj.toUpperCase());
-					$('#tujuan').html(_resp.ktujuan.toUpperCase());
+					if (_resp.asalsj != null)
+					{
+						$('#asal').html(_resp.asalsj.toUpperCase());
+					}
+					if (_resp.ktujuan != null)
+					{
+						$('#tujuan').html(_resp.ktujuan.toUpperCase());
+					}
+					//$('#tujuan').html('ffdsf');
 					$('#keterangan').html(_resp.keterangan.toUpperCase());
 					$('#selesai').removeAttr('disabled');
 					$('#list_table').show();

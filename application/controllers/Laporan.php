@@ -45,7 +45,7 @@ class Laporan extends CI_Controller {
 		$data['hasil'] = $this->M_codeigniter->query("
 				SELECT b.`nomor_kasbon`,b.`nominal`,DATE_FORMAT(DATE(b.`created_at`),'%d/%m/%Y') AS tgltotalan,IFNULL(md.`nama_mdriver`,s.sopir) AS sopir,UPPER(k.`nopol`) AS nopol,
 				DATE_FORMAT(p.`tglberangkat`,'%d-%m-%Y') AS tglberangkat,
-				CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ', p.`jenismuatan`,'-',pd.jenismuatan , ' / ' ,IFNULL(co.container,''),' ) ') AS tujuan,
+				CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ',IFNULL(p.`jenismuatan`,''),'-',IFNULL(pd.jenismuatan,'') , ' / ' ,IFNULL(co.container,''),' ) ') AS tujuan,
 				c.`cost_center` AS costcenter,g.`gl_account` AS glaccount,db.totalbiaya2,a.username
 				FROM
 				tbl_biaya b 

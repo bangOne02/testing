@@ -860,7 +860,7 @@ else
 	    $a = $a.')';
 
 		$data['hasil'] = $this->M_codeigniter->query("
-		    SELECT '40' as `PK`,'' as `SPESIAL G/L`,t1.glaccount as `ACCOUNT`,t1.totalbiaya2 as `AMOUNT`,t1.business_area as `BUSINESS AREA`,t1.costcenter as `COSTCENTER`,'' as `PROFIT CENTER`,CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ',pk.`jenismuatan`,'-',pd.jenismuatan, ' / ' ,c.container,' ) ') as `TEXT`,
+		    SELECT '40' as `PK`,'' as `SPESIAL G/L`,t1.glaccount as `ACCOUNT`,t1.totalbiaya2 as `AMOUNT`,t1.business_area as `BUSINESS AREA`,t1.costcenter as `COSTCENTER`,'' as `PROFIT CENTER`,CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ',IFNULL(pk.`jenismuatan`,''),'-',IFNULL(pd.jenismuatan,''), ' / ' ,IFNULL(c.container,''),' ) ') as `TEXT`,
 			'10140624' as `INTERNAL ORDER`
 			FROM tbl_biaya b 
 			LEFT JOIN 

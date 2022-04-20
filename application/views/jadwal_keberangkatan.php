@@ -137,7 +137,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -229,7 +229,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -320,7 +320,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -411,7 +411,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -502,7 +502,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -593,7 +593,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -684,7 +684,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -773,7 +773,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -862,7 +862,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 
@@ -951,7 +951,7 @@
                           echo "<br>";
                           echo "DRIVER : ".strtoupper($row->nama_mdriver)." / NO HP. ".strtoupper($row->no_hp);
                           echo "<br>";
-                          echo "KEPERLUAN : ".strtoupper($row->keterangan);
+                          echo "". strtoupper(substr($row->keterangan, 0,40)." ...");
                           echo "<br>";
                           echo "EXTENSION : ".strtoupper($row->ext);
 

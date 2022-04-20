@@ -258,7 +258,15 @@ class Kendaraan extends CI_Controller {
 	public function myListRequest(){
 		$id_admin = $this->session->userdata('id_admin');
 		$admin_name = $this->session->userdata('admin_name');
-		$data['table'] = $this->M_codeigniter->query("SELECT * from tbl_request_user")->result();
+		if ($admin_name == 'userkendaraan')
+		{
+			$data['table'] = $this->M_codeigniter->query("SELECT * from tbl_request_user where nid = '".$id_admin."'")->result();
+		} else
+		{
+			$data['table'] = $this->M_codeigniter->query("SELECT * from tbl_request_user")->result();
+		}
+
+	
 		$output = array(
 			'html' => $this->load->view('list_request_user', $data, true),
 		);

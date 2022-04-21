@@ -229,7 +229,7 @@ $(document).ready(function(){
 					$('#list_table').hide();
 					toastr.success("Insert berhasil");
 				}else{
-					toastr.error('Ups..! Insert gagal ! Surat Jalan Sudah Di Closed. ');
+					toastr.error('Ups..! Insert gagal  ');
 				}
 			}
 		});
@@ -252,7 +252,7 @@ $(document).ready(function(){
 					list();
 					toastr.success("Insert berhasil");
 				}else{
-					toastr.error('Ups..! Insert gagal ! Surat Jalan Sudah Di Closed. ');
+					toastr.error('Ups..! Insert gagal !');
 				}
 			}
 		});
@@ -290,14 +290,34 @@ function list(){
 		  }); 
  
 	      $('#table_1').DataTable({
-				"bInfo": false,
-				"scroll": false,
-				"ordering": false, 
-				autowidth: true,
-				"bPaginate": false,
-			    "searching": false,
-			    "pageLength": 10000
+			"bInfo": false,
+			"scroll": false,
+			"ordering": false, 
+			//autowidth: false,
+			"bPaginate": false,
+			"searching": false,
+			"pageLength": 10000,
+			"bAutoWidth": false, 
+			"aoColumns" : [
+				{ sWidth: '25%' },
+				{ sWidth: '70%' }
+			]
 		  });
+
+		  $('#table_2').DataTable({
+			"bInfo": false,
+			"scroll": false,
+			"ordering": false, 
+		//	"autowidth": false,
+			"bPaginate": false,
+			"searching": false,
+			"pageLength": 10000,
+			"bAutoWidth": false, 
+			"aoColumns" : [
+				{ sWidth: '25%' },
+				{ sWidth: '70%' }
+			]
+	  	  });
 
 	      $('#list_table').show();
 		}

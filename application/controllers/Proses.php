@@ -59,57 +59,82 @@ class Proses extends CI_Controller{
 
 		
 		$data['table'] = $this->M_codeigniter->query("
-			  SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
-	          p.`nama_mpelabuhan` AS tujuan,sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
-			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2
+			  SELECT sj.nomorsj,sj.pic,sj.keterangan as 'keterangansj',DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
+	          p.`nama_mpelabuhan` AS tujuan,sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,
+			  sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
+			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2,d.nama_mdriver,s.chasis,c.container,
+			  kb.tglberangkat AS ktglberangkat,kb.jamkeluar AS kjamkeluar,kb.nomorpolisi AS knomorpolisi,kb.segelpelayaran AS ksegelpelayaran,kb.segelbeacukai AS ksegelbeacukai,
+				kb.gembok AS kgembok,kb.temperatur AS ktemperatur,kb.jenismuatan AS kjenismuatan,kb.beratkosong AS kberatkosong,kb.beratisi AS kberatisi,kb.namasopir AS knamasopir,
+				kb.suhutubuh AS ksuhutubuh,kb.kmawal AS kkmawal,kb.sasis AS ksasis,kb.nocontainer AS knocontainer,kb.pic1 AS kpic1,kb.keterangan AS kketerangan,
+				kd.tgltiba AS dtgltiba,kd.jammasuk AS djammasuk,kd.nomorpolisi AS dnomorpolisi,kd.segelpelayaran AS dsegelpelayaran,kd.segelbeacukai AS dsegelbeacukai,kd.gembok AS dgembok,
+				kd.temperatur AS dtemperatur,kd.jenismuatan AS djenismuatan,kd.beratkosong AS dberatkosong,kd.beratisi AS dberatisi,kd.namasopir AS dnamasopir,kd.suhutubuh AS dsuhutubuh,
+				kd.kmakhir AS dkmakhir,kd.sasis AS dsasis,kd.nocontainer AS dnocontainer,kd.pic2 AS dpic2,kd.keterangan AS dketerangan
 			  FROM tbl_suratjalan sj 
 	          JOIN tbl_pelabuhan p ON p.`id_mpelabuhan` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
 	          LEFT JOIN tbl_jenis_kendaraan j ON k.jenis = j.id
 	          LEFT JOIN tbl_driver d ON d.`id_mdriver` = sj.`sopir`
 	          LEFT JOIN tbl_chasis s ON s.id = sj.sasis
-	          LEFT JOIN tbl_container c ON c.id = sj.nocontainer
+	          LEFT JOIN (SELECT * FROM tbl_container UNION SELECT * FROM tbl_container_rent) c ON c.id = sj.nocontainer
 			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
 			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
 	          WHERE sj.nomorsj = '".$no_sj."' 
 	          UNION
-	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
+	          SELECT sj.nomorsj,sj.pic,sj.keterangan as 'keterangansj',DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          p.`nama_mdepo` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
-			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2
+			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2,d.nama_mdriver,s.chasis,c.container,
+			  kb.tglberangkat AS ktglberangkat,kb.jamkeluar AS kjamkeluar,kb.nomorpolisi AS knomorpolisi,kb.segelpelayaran AS ksegelpelayaran,kb.segelbeacukai AS ksegelbeacukai,
+				kb.gembok AS kgembok,kb.temperatur AS ktemperatur,kb.jenismuatan AS kjenismuatan,kb.beratkosong AS kberatkosong,kb.beratisi AS kberatisi,kb.namasopir AS knamasopir,
+				kb.suhutubuh AS ksuhutubuh,kb.kmawal AS kkmawal,kb.sasis AS ksasis,kb.nocontainer AS knocontainer,kb.pic1 AS kpic1,kb.keterangan AS kketerangan,
+				kd.tgltiba AS dtgltiba,kd.jammasuk AS djammasuk,kd.nomorpolisi AS dnomorpolisi,kd.segelpelayaran AS dsegelpelayaran,kd.segelbeacukai AS dsegelbeacukai,kd.gembok AS dgembok,
+				kd.temperatur AS dtemperatur,kd.jenismuatan AS djenismuatan,kd.beratkosong AS dberatkosong,kd.beratisi AS dberatisi,kd.namasopir AS dnamasopir,kd.suhutubuh AS dsuhutubuh,
+				kd.kmakhir AS dkmakhir,kd.sasis AS dsasis,kd.nocontainer AS dnocontainer,kd.pic2 AS dpic2,kd.keterangan AS dketerangan
 	          FROM tbl_suratjalan sj 
 	          JOIN tbl_depo p ON p.`id_mdepo` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
 	          LEFT JOIN tbl_jenis_kendaraan j ON k.jenis = j.id
 	          LEFT JOIN tbl_driver d ON d.`id_mdriver` = sj.`sopir`
 	          LEFT JOIN tbl_chasis s ON s.id = sj.sasis
-	          LEFT JOIN tbl_container c ON c.id = sj.nocontainer
+	          LEFT JOIN (SELECT * FROM tbl_container UNION SELECT * FROM tbl_container_rent) c ON c.id = sj.nocontainer
 			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
 			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
 	          WHERE sj.nomorsj = '".$no_sj."' 
 	          UNION
-	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
+	          SELECT sj.nomorsj,sj.pic,sj.keterangan as 'keterangansj',DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          p.`nama_mplant` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
-			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2
+			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2,d.nama_mdriver,s.chasis,c.container,
+			  kb.tglberangkat AS ktglberangkat,kb.jamkeluar AS kjamkeluar,kb.nomorpolisi AS knomorpolisi,kb.segelpelayaran AS ksegelpelayaran,kb.segelbeacukai AS ksegelbeacukai,
+				kb.gembok AS kgembok,kb.temperatur AS ktemperatur,kb.jenismuatan AS kjenismuatan,kb.beratkosong AS kberatkosong,kb.beratisi AS kberatisi,kb.namasopir AS knamasopir,
+				kb.suhutubuh AS ksuhutubuh,kb.kmawal AS kkmawal,kb.sasis AS ksasis,kb.nocontainer AS knocontainer,kb.pic1 AS kpic1,kb.keterangan AS kketerangan,
+				kd.tgltiba AS dtgltiba,kd.jammasuk AS djammasuk,kd.nomorpolisi AS dnomorpolisi,kd.segelpelayaran AS dsegelpelayaran,kd.segelbeacukai AS dsegelbeacukai,kd.gembok AS dgembok,
+				kd.temperatur AS dtemperatur,kd.jenismuatan AS djenismuatan,kd.beratkosong AS dberatkosong,kd.beratisi AS dberatisi,kd.namasopir AS dnamasopir,kd.suhutubuh AS dsuhutubuh,
+				kd.kmakhir AS dkmakhir,kd.sasis AS dsasis,kd.nocontainer AS dnocontainer,kd.pic2 AS dpic2,kd.keterangan AS dketerangan
 	          FROM tbl_suratjalan sj 
 	          JOIN tbl_plant p ON p.`id_mplant` = sj.`tujuan`
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
 	          LEFT JOIN tbl_jenis_kendaraan j ON k.jenis = j.id
 	          LEFT JOIN tbl_driver d ON d.`id_mdriver` = sj.`sopir`
 	          LEFT JOIN tbl_chasis s ON s.id = sj.sasis
-	          LEFT JOIN tbl_container c ON c.id = sj.nocontainer
+	          LEFT JOIN (SELECT * FROM tbl_container UNION SELECT * FROM tbl_container_rent) c ON c.id = sj.nocontainer
 			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
 			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
 	          WHERE sj.nomorsj = '".$no_sj."' 
 	          UNION
-	          SELECT sj.nomorsj,DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
+	          SELECT sj.nomorsj,sj.pic,sj.keterangan as 'keterangansj',DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          sj.`tujuan` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
-			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2
+			  DATE_FORMAT(kb.tglberangkat,'%d-%m-%Y') as tglberangkat,kb.jamkeluar,DATE_FORMAT(kd.tgltiba,'%d-%m-%Y') as tgltiba,kd.jammasuk,kb.pic1,kd.pic2,d.nama_mdriver,s.chasis,c.container,
+			  kb.tglberangkat AS ktglberangkat,kb.jamkeluar AS kjamkeluar,kb.nomorpolisi AS knomorpolisi,kb.segelpelayaran AS ksegelpelayaran,kb.segelbeacukai AS ksegelbeacukai,
+				kb.gembok AS kgembok,kb.temperatur AS ktemperatur,kb.jenismuatan AS kjenismuatan,kb.beratkosong AS kberatkosong,kb.beratisi AS kberatisi,kb.namasopir AS knamasopir,
+				kb.suhutubuh AS ksuhutubuh,kb.kmawal AS kkmawal,kb.sasis AS ksasis,kb.nocontainer AS knocontainer,kb.pic1 AS kpic1,kb.keterangan AS kketerangan,
+				kd.tgltiba AS dtgltiba,kd.jammasuk AS djammasuk,kd.nomorpolisi AS dnomorpolisi,kd.segelpelayaran AS dsegelpelayaran,kd.segelbeacukai AS dsegelbeacukai,kd.gembok AS dgembok,
+				kd.temperatur AS dtemperatur,kd.jenismuatan AS djenismuatan,kd.beratkosong AS dberatkosong,kd.beratisi AS dberatisi,kd.namasopir AS dnamasopir,kd.suhutubuh AS dsuhutubuh,
+				kd.kmakhir AS dkmakhir,kd.sasis AS dsasis,kd.nocontainer AS dnocontainer,kd.pic2 AS dpic2,kd.keterangan AS dketerangan
 	          FROM tbl_suratjalan sj 
 	          LEFT JOIN tbl_kendaraan k ON sj.kendaraan = k.id 
 	          LEFT JOIN tbl_jenis_kendaraan j ON k.jenis = j.id
 	          LEFT JOIN tbl_driver d ON d.`id_mdriver` = sj.`sopir`
 	          LEFT JOIN tbl_chasis s ON s.id = sj.sasis
-	          LEFT JOIN tbl_container c ON c.id = sj.nocontainer
+	          LEFT JOIN (SELECT * FROM tbl_container UNION SELECT * FROM tbl_container_rent) c ON c.id = sj.nocontainer
 			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
 			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
 	          WHERE sj.nomorsj = '".$no_sj."'  AND sj.`jns_tujuan` = 0
@@ -133,16 +158,16 @@ class Proses extends CI_Controller{
 
 		if ($suratjalan->size == 1 )
 		{
-			$data['driver'] = $this->M_codeigniter->get_where('tbl_driver' , array('jns_kendaraan' => 'besar'))->result();	
+			$data['driver'] = $this->M_codeigniter->get_where('tbl_driver' , array('jns_kendaraan' => 'besar','active' => 0))->result();	
 			$data['kendaraan'] = $this->M_codeigniter->get_where('tbl_kendaraan' , array('ukuran' => 'besar','active' => 0))->result();	
 		} else
 		{
-			$data['driver'] = $this->M_codeigniter->get_where('tbl_driver' , array('jns_kendaraan' => 'kecil'))->result();
+			$data['driver'] = $this->M_codeigniter->get_where('tbl_driver' , array('jns_kendaraan' => 'kecil','active' => 0))->result();
 			$data['kendaraan'] = $this->M_codeigniter->get_where('tbl_kendaraan' , array('ukuran' => 'kecil','active' => 0))->result();
 		}
 		
-		$data['chasis'] = $this->M_codeigniter->get('tbl_chasis')->result();
-		$data['container'] = $this->M_codeigniter->query('select * from tbl_container union select * from tbl_container_rent')->result();
+		$data['chasis'] = $this->M_codeigniter->query('select * from tbl_chasis where active = 0')->result();
+		$data['container'] = $this->M_codeigniter->query('select * from tbl_container where active = 0 union select * from tbl_container_rent where active = 0')->result();
 
 
 		if ($proses == 1)
@@ -201,6 +226,7 @@ class Proses extends CI_Controller{
 	}
 
 	function insertData(){
+
 		$status = 0;
 		$nomorsj = $this->input->post('nosuratjalan');
 		$proces = $this->input->post('proces');
@@ -226,7 +252,6 @@ class Proses extends CI_Controller{
 				$nocontainer = 0;
 			}
 			$keterangan = $this->input->post('keterangan');
-
 
 		   	if ($proces == 1)
 			{
@@ -376,7 +401,6 @@ class Proses extends CI_Controller{
 			}
 		}
 
-
 		if ($status == 1)
 		{
 			$output = array('status' => 1);
@@ -389,7 +413,6 @@ class Proses extends CI_Controller{
 			return;
 		}
 
-	
 	}
 
 	function insertDataRevisi(){

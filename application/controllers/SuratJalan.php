@@ -1051,25 +1051,25 @@ class SuratJalan extends CI_Controller {
 				FROM tbl_suratjalan s JOIN tbl_depo d ON d.`id_mdepo` = s.`tujuan`
 				LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
 				LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir
-				LEFT JOIN tbl_p_keberangkatan pk on pk.fk_idsj = s.id  where s.active = 0 and pk.tglberangkat is null
+				LEFT JOIN tbl_p_keberangkatan pk on pk.fk_idsj = s.id  where s.active = 0 and s.proses < 2
 				UNION
 				SELECT s.id,s.nomorsj,s.tanggalberangkat,s.sopir,s.asalsj,CONCAT('PELABUHAN - ',d.`nama_mpelabuhan`) AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses,1 as proces
 				FROM tbl_suratjalan s JOIN tbl_pelabuhan d ON d.`id_mpelabuhan` = s.`tujuan`
 				LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
 				LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir 
-				LEFT JOIN tbl_p_keberangkatan pk on pk.fk_idsj = s.id  where s.active = 0 and pk.tglberangkat is null
+				LEFT JOIN tbl_p_keberangkatan pk on pk.fk_idsj = s.id  where s.active = 0 and s.proses < 2
 				UNION
 				SELECT s.id,s.nomorsj,s.tanggalberangkat,s.sopir,s.asalsj,CONCAT('PLANT - ',d.`nama_mplant`) AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses,1 as proces
 				FROM tbl_suratjalan s JOIN tbl_plant d ON d.`id_mplant` = s.`tujuan`
 				LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
 				LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir 
-				LEFT JOIN tbl_p_keberangkatan pk on pk.fk_idsj = s.id  where s.active = 0 and pk.tglberangkat is null 
+				LEFT JOIN tbl_p_keberangkatan pk on pk.fk_idsj = s.id  where s.active = 0 and s.proses < 2
 				UNION
 				SELECT s.id,s.nomorsj,s.tanggalberangkat,s.sopir,s.asalsj,s.tujuan AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses,1 as proces
 				FROM tbl_suratjalan s 
 				LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
 				LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir 
-				LEFT JOIN tbl_p_keberangkatan pk on pk.fk_idsj = s.id  where s.active = 0 and pk.tglberangkat is null
+				LEFT JOIN tbl_p_keberangkatan pk on pk.fk_idsj = s.id  where s.active = 0 and s.proses < 2
 				and s.`jns_tujuan` = 0
 			")->result();
 		}
@@ -1118,25 +1118,25 @@ class SuratJalan extends CI_Controller {
 				FROM tbl_suratjalan s JOIN tbl_depo d ON d.`id_mdepo` = s.`tujuan`
 				LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
 				LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir 
-				LEFT JOIN tbl_p_kedatangan pd on pd.fk_idsj = s.id  where s.active = 0 and pd.tgltiba is null
+				LEFT JOIN tbl_p_kedatangan pd on pd.fk_idsj = s.id  where s.active = 0 and s.proses < 2
 				UNION
 				SELECT s.id,s.nomorsj,s.tanggalberangkat,s.asalsj,s.sopir,CONCAT('PELABUHAN - ',d.`nama_mpelabuhan`) AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses,2 as proces
 				FROM tbl_suratjalan s JOIN tbl_pelabuhan d ON d.`id_mpelabuhan` = s.`tujuan`
 				LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
 				LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir 
-				LEFT JOIN tbl_p_kedatangan pd on pd.fk_idsj = s.id  where s.active = 0 and pd.tgltiba is null
+				LEFT JOIN tbl_p_kedatangan pd on pd.fk_idsj = s.id  where s.active = 0 and s.proses < 2
 				UNION
 				SELECT s.id,s.nomorsj,s.tanggalberangkat,s.asalsj,s.sopir,CONCAT('PLANT - ',d.`nama_mplant`) AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses,2 as proces
 				FROM tbl_suratjalan s JOIN tbl_plant d ON d.`id_mplant` = s.`tujuan`
 				LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
 				LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir 
-				LEFT JOIN tbl_p_kedatangan pd on pd.fk_idsj = s.id  where s.active = 0 and pd.tgltiba is null
+				LEFT JOIN tbl_p_kedatangan pd on pd.fk_idsj = s.id  where s.active = 0 and s.proses < 2
 				UNION
 				SELECT s.id,s.nomorsj,s.tanggalberangkat,s.asalsj,s.sopir,s.tujuan AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses,2 as proces
 				FROM tbl_suratjalan s 
 				LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
 				LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir 
-				LEFT JOIN tbl_p_kedatangan pd on pd.fk_idsj = s.id  where s.active = 0 and pd.tgltiba is null
+				LEFT JOIN tbl_p_kedatangan pd on pd.fk_idsj = s.id  where s.active = 0 and s.proses < 2
 				and s.`jns_tujuan` = 0
 			")->result();
 		}

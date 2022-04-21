@@ -335,7 +335,7 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 					echo strtoupper($table[0]->jammasuk); 
 				} 
 				?>"  placeholder="" > </td>
-				<td><input class="form-control" name="jamtiba" type="time" value="<?php echo strtoupper($table[0]->jammasuk); ?>" placeholder="PERUBAHAN JAM TIBA" > </td>
+				<td><input class="form-control" name="jamtiba" type="time" value="16:32:55" placeholder="PERUBAHAN JAM TIBA" > </td>
 			</tr>
 			<tr>
 				<td>3</td>

@@ -112,8 +112,10 @@
 					    } else if ($admin_name == 'adminsecurity' && $row->proses == 0)
 						{ ?>
 						   	<td><center>
-								<div class="btn-group-horizontal">
-									<a class="btn btn-success btn-sm btn-flat" style="background-color: #005b71;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+								<div class="btn-group-horizontal" style="
+    white-space: nowrap;
+">
+								    <a class="btn btn-success btn-sm btn-flat" style="background-color: #005b71;" href="<?php echo base_url('Proses/revisi/?nosj='.$row->nomorsj.'&proses=1'); ?>">PEMERIKSAAN KEBERANGKATAN</a>&nbsp;&nbsp;<a class="btn btn-success btn-sm btn-flat" style="background-color: #005b71;" href="<?php echo base_url('Proses/revisi/?nosj='.$row->nomorsj.'&proses=2'); ?>">PEMERIKSAAN KEDATANGAN</a>
 					            </div>
 					        </center></td>
 						   	<?php

@@ -78,7 +78,7 @@ class Proses extends CI_Controller{
 	          LEFT JOIN (SELECT * FROM tbl_container UNION SELECT * FROM tbl_container_rent) c ON c.id = sj.nocontainer
 			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
 			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
-	          WHERE sj.nomorsj = '".$no_sj."' 
+	          WHERE sj.nomorsj = '".$no_sj."' and sj.active = 0
 	          UNION
 	          SELECT sj.nomorsj,sj.pic,sj.keterangan as 'keterangansj',DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          p.`nama_mdepo` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
@@ -98,7 +98,7 @@ class Proses extends CI_Controller{
 	          LEFT JOIN (SELECT * FROM tbl_container UNION SELECT * FROM tbl_container_rent) c ON c.id = sj.nocontainer
 			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
 			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
-	          WHERE sj.nomorsj = '".$no_sj."' 
+	          WHERE sj.nomorsj = '".$no_sj."' and sj.active = 0
 	          UNION
 	          SELECT sj.nomorsj,sj.pic,sj.keterangan as 'keterangansj',DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          p.`nama_mplant` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
@@ -118,7 +118,7 @@ class Proses extends CI_Controller{
 	          LEFT JOIN (SELECT * FROM tbl_container UNION SELECT * FROM tbl_container_rent) c ON c.id = sj.nocontainer
 			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
 			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
-	          WHERE sj.nomorsj = '".$no_sj."' 
+	          WHERE sj.nomorsj = '".$no_sj."' and sj.active = 0
 	          UNION
 	          SELECT sj.nomorsj,sj.pic,sj.keterangan as 'keterangansj',DATE_FORMAT(sj.tanggalberangkat,'%d-%m-%Y') as tanggalberangkat,sj.asalsj,IFNULL(sj.tugas,'') AS tugas,k.`nopol`,j.nama_jenis AS nama_kendaraan, sj.size,sj.kendaraan,
 	          sj.`tujuan` AS tujuan, sj.sopir AS driver,IFNULL(sj.sasis,'') AS sasis,IFNULL(s.nokir,'') AS nokir,sj.proses,sj.jenismuatan,IFNULL(sj.nocontainer,'') as nocontainer,sj.gembok,sj.segelpelayaran,sj.jenis,sj.segelbeacukai,
@@ -137,7 +137,7 @@ class Proses extends CI_Controller{
 	          LEFT JOIN (SELECT * FROM tbl_container UNION SELECT * FROM tbl_container_rent) c ON c.id = sj.nocontainer
 			  LEFT JOIN tbl_p_keberangkatan kb on kb.fk_idsj = sj.id
 			  LEFT JOIN tbl_p_kedatangan kd on kd.fk_idsj = sj.id
-	          WHERE sj.nomorsj = '".$no_sj."'  AND sj.`jns_tujuan` = 0
+	          WHERE sj.nomorsj = '".$no_sj."'  AND sj.`jns_tujuan` = 0 and sj.active = 0
 		")->result();
 
 		//echo $this->db->last_query();

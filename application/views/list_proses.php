@@ -14,6 +14,9 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 			</tr>
 		</thead>
 		<tbody>
+			<?php
+		if (count($table) != 0) 
+		{ ?>
 			<tr>
 				<td colspan="2" style="font-weight: bolder;">RENCANA SURAT JALAN</td>
 				<td style="display: none;"></td>
@@ -1182,6 +1185,7 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 			    </td>
 			</tr>
 		<?php
+		}
 		}
 		?>
 		

@@ -987,22 +987,22 @@ class SuratJalan extends CI_Controller {
 		SELECT s.id,s.nomorsj,s.tanggalberangkat,s.sopir,s.asalsj,CONCAT('DEPO - ',d.`nama_mdepo`) AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses
 		FROM tbl_suratjalan s JOIN tbl_depo d ON d.`id_mdepo` = s.`tujuan`
 		LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
-		LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir where s.active = 0 and s.proses > 0
+		LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir where s.active = 0 
 		UNION
 		SELECT s.id,s.nomorsj,s.tanggalberangkat,s.sopir,s.asalsj,CONCAT('PELABUHAN - ',d.`nama_mpelabuhan`) AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses 
 		FROM tbl_suratjalan s JOIN tbl_pelabuhan d ON d.`id_mpelabuhan` = s.`tujuan`
 		LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
-		LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir where s.active = 0 and s.proses > 0
+		LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir where s.active = 0 
 		UNION
 		SELECT s.id,s.nomorsj,s.tanggalberangkat,s.sopir,s.asalsj,CONCAT('PLANT - ',d.`nama_mplant`) AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses 
 		FROM tbl_suratjalan s JOIN tbl_plant d ON d.`id_mplant` = s.`tujuan`
 		LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
-		LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir where s.active = 0 and s.proses > 0
+		LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir where s.active = 0 
 		UNION
 		SELECT s.id,s.nomorsj,s.tanggalberangkat,s.sopir,s.asalsj,s.tujuan AS tujuan,s.`keterangan`,k.nopol,k.ukuran,p.nama_mdriver AS namasopir,j.nama_jenis,s.proses 
 		FROM tbl_suratjalan s 
 		LEFT JOIN tbl_kendaraan k ON s.kendaraan = k.id LEFT JOIN tbl_jenis_kendaraan j ON j.id = k.jenis 
-		LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir where s.active = 0 and s.proses > 0
+		LEFT JOIN tbl_driver p ON p.id_mdriver = s.sopir where s.active = 0 
 		and s.`jns_tujuan` = 0
 		")->result();
 

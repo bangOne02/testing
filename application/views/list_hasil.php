@@ -16,7 +16,7 @@ overflow-x:auto;
 	<div class="col-md-12">
 	
 		
-        <form method="post" target="_blank" action="<?php echo base_url('Laporan/getHasil/2'); ?>">
+        <form method="post" target="_blank" action="<?php echo base_url('Laporan/getHasil/1'); ?>">
             <input type="hidden" name="tanggalawal" value="<?php echo $tanggalawal; ?>">
 			<input type="hidden" name="tanggalakhir" value="<?php echo $tanggalakhir; ?>">
             <button type="submit" class="btn btn-success btn-flat pull-right"><i class="fa fa-file-excel-o"></i></button>

@@ -378,14 +378,9 @@ else
 		$data['tanggalakhir'] = $tanggalakhir;
 
 		if ($excel == 1) {
-		    $this->load->library('pdf');
-	        $this->data['title_pdf'] = 'Laporan Surat Jalan';
-	        $file_pdf = 'laporan_surat_jalan';
-	        $paper = 'A4';
-		  // $paper = 'A4';
-	        $orientation = "landscape";
-			$html = $this->load->view('list_hasil',$data, true);	   
-	        $this->pdf->generate($html, $file_pdf,$paper,$orientation);
+		    header("Content-type: application/vnd-ms-excel");
+ 			header("Content-Disposition: attachment; filename=report.xls");
+			$this->load->view('list_hasil',$data); 
 		} else if ($excel == 2) {
 
 			// header("Content-type: application/vnd-ms-excel");
@@ -669,13 +664,9 @@ else
 		$data['tanggalakhir'] = $tanggalakhir;
 
 		if ($excel == 1) {
-		    $this->load->library('pdf');
-	        $this->data['title_pdf'] = 'Laporan Biaya';
-	        $file_pdf = 'laporan_biaya';
-	        $paper = 'A4';
-	        $orientation = "landscape";
-			$html = $this->load->view('list_hasil_biaya',$data, true);	   
-	        $this->pdf->generate($html, $file_pdf,$paper,$orientation);
+		    header("Content-type: application/vnd-ms-excel");
+ 			header("Content-Disposition: attachment; filename=report.xls");
+			$this->load->view('list_hasil_biaya',$data); 
 		} else if ($excel == 2) {
 			// header("Content-type: application/vnd-ms-excel");
  			// header("Content-Disposition: attachment; filename=report.xls");

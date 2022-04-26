@@ -69,9 +69,7 @@ $(document).ready(function(){
 		}
 		
 		if (form_config.button  === 'submit2') { 
-			//$(this).target = "_blank";
-			$(this).attr("target", "_blank");
-			//$('#list_table').loading();
+			$('#list_table').loading();
 			$.ajax({
 				url : base_url+'Laporan/getHasil/2',
 				type: 'post',
@@ -84,8 +82,10 @@ $(document).ready(function(){
 					$a.attr("download",data.namafile+".xls");
 					$a[0].click();
 					$a.remove();
+					$('#list_table').loading('stop');
 				}
 			});		
+			
 		}		
 	});
 

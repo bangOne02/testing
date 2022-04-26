@@ -66,6 +66,7 @@ $(document).ready(function(){
 		}
 		
 		if (form_config.button  === 'submit2') { 
+			$('#list_table').loading();
 			$.ajax({
 				url : base_url+'Laporan/getHasilBiaya/2',
 				type: 'post',
@@ -78,6 +79,7 @@ $(document).ready(function(){
 					$a.attr("download",data.namafile+".xls");
 					$a[0].click();
 					$a.remove();
+					$('#list_table').loading('stop');
 				}
 			});		
 		}			

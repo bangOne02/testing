@@ -387,9 +387,19 @@ else
 			$html = $this->load->view('list_hasil',$data, true);	   
 	        $this->pdf->generate($html, $file_pdf,$paper,$orientation);
 		} else if ($excel == 2) {
-			header("Content-type: application/vnd-ms-excel");
- 			header("Content-Disposition: attachment; filename=report.xls");
-			$this->load->view('list_hasil',$data); 
+
+			// header("Content-type: application/vnd-ms-excel");
+ 			// header("Content-Disposition: attachment; filename=report.xls");
+			 
+			$html = $this->load->view('list_hasil',$data,true);
+
+			$response =  array(
+				'namafile' => 'report_mobilisasi',
+				'file' => "data:application/vnd.ms-excel;base64,".base64_encode($html)
+			);
+
+			echo json_encode($response);
+			 
 		} else{
 			$output = array(
 				'html' => $this->load->view('list_hasil',$data, true)
@@ -663,14 +673,21 @@ else
 	        $this->data['title_pdf'] = 'Laporan Biaya';
 	        $file_pdf = 'laporan_biaya';
 	        $paper = 'A4';
-		  // $paper = 'A4';
 	        $orientation = "landscape";
 			$html = $this->load->view('list_hasil_biaya',$data, true);	   
 	        $this->pdf->generate($html, $file_pdf,$paper,$orientation);
 		} else if ($excel == 2) {
-			header("Content-type: application/vnd-ms-excel");
- 			header("Content-Disposition: attachment; filename=report.xls");
-			$this->load->view('list_hasil_biaya',$data); 
+			// header("Content-type: application/vnd-ms-excel");
+ 			// header("Content-Disposition: attachment; filename=report.xls");
+			// $this->load->view('list_hasil_biaya',$data); 
+			$html = $this->load->view('list_hasil_biaya',$data,true);
+
+			$response =  array(
+				'namafile' => 'report_biaya',
+				'file' => "data:application/vnd.ms-excel;base64,".base64_encode($html)
+			);
+
+			echo json_encode($response);
 		} else{
 			$output = array(
 				'html' => $this->load->view('list_hasil_biaya',$data, true)

@@ -53,9 +53,15 @@
 					</div> 
 				</div>
 
-				<div class="col-md-12" align="center">
+				<div class="col-md-6" align="center">
 					<br>
-					<button class="btn btn-primary btn-sm btn-flat"  style="width: 100%"><i class="fa fa-search"></i> Tampilkan</button>
+					<button class="btn btn-primary btn-sm btn-flat"  style="width: 100%" value="button1" id="submit1"><i class="fa fa-search"></i> Tampilkan</button>
+    				<!-- <input class="btn btn-primary btn-sm btn-flat"  style="width: 100%" type="submit" name="button2" value="Tampilkan"/> -->
+				</div>
+				<div class="col-md-6" align="center">
+					<br>
+					<button class="btn btn-primary btn-sm btn-flat"  style="width: 100%" value="button2" id="submit2" ><i class="fa fa-search"></i> Download Excel</button>
+					<!-- <input class="btn btn-primary btn-sm btn-flat"  style="width: 100%" type="submit" name="button1" value="Export To Excel"/> -->
 				</div>
     	</form>
 

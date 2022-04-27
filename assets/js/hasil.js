@@ -13,6 +13,14 @@ $(document).ready(function(){
 
 	var form_config = {button: null};
 
+	$("#ttglawal").change(function(){
+		$("#tglawal").val($(this).val());
+	});
+
+	$("#ttglakhir").change(function(){
+		$("#tglakhir").val($(this).val());
+	});
+
 	$("#submit1").click(function(){
 	form_config.button = 'submit1';  
 	});
@@ -71,10 +79,40 @@ $(document).ready(function(){
 		if (form_config.button  === 'submit2') { 
 			$('#list_table').loading();
 			$.ajax({
+				xhr: function() {
+					var xhr = new window.XMLHttpRequest();
+			
+					// Upload progress
+					xhr.upload.addEventListener("progress", function(evt){
+						if (evt.lengthComputable) {
+							var percentComplete = evt.loaded / evt.total;
+							//Do something with upload progress
+							alert(percentComplete);
+							// console.log(percentComplete);
+						}
+				   }, false);
+			
+				   // Download progress
+				   xhr.addEventListener("progress", function(evt){
+					   if (evt.lengthComputable) {
+						   var percentComplete = evt.loaded / evt.total;
+						   // Do something with download progress
+						   alert(percentComplete);
+						//    console.log(percentComplete);
+					   }
+				   }, false);
+			
+				   return xhr;
+				},
 				url : base_url+'Laporan/getHasil/2',
 				type: 'post',
 				dataType: 'json',
 				data: $(this).serialize(),
+				timeout: 10000,
+				beforeSend: function(){
+					$('.my-box').html('<div class="progress"><div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div></div>');
+					$('.progress-bar').animate({width: "30%"}, 100);
+				},
 				success:function(data){  
 					var $a = $("<a>");
 					$a.attr("href",data.file);

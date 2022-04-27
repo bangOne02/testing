@@ -63,7 +63,7 @@
 											<div class="form-group">
 												<br>
 												<label>DARI TANGGAL</label>
-												<input class="form-control date" style="height: fit-content;" data-date-format="dd-mm-yyyy" placeholder="ENTER TANGGAL AWAL KASBON" name="tanggalawal" autocomplete="off" required>
+												<input class="form-control date" id="ttglawal" style="height: fit-content;" data-date-format="dd-mm-yyyy" placeholder="ENTER TANGGAL AWAL KASBON" name="tanggalawal" autocomplete="off" required>
 											</div> 
 										</div>
 
@@ -71,7 +71,7 @@
 											<div class="form-group">
 												<br>
 												<label>SAMPAI TANGGAL</label>
-												<input class="form-control date" style="height: fit-content;" data-date-format="dd-mm-yyyy" placeholder="ENTER TANGGAL AKHIR KASBON" name="tanggalakhir" autocomplete="off" required>
+												<input class="form-control date" id="ttglakhir" style="height: fit-content;" data-date-format="dd-mm-yyyy" placeholder="ENTER TANGGAL AKHIR KASBON" name="tanggalakhir" autocomplete="off" required>
 											</div> 
 										</div>
 
@@ -79,12 +79,16 @@
 											<br>
 											<button class="btn btn-primary btn-sm btn-flat"  style="width: 100%" value="button1" id="submit1" ><i class="fa fa-search"></i> Tampilkan</button>
 										</div>
-										<div class="col-md-6" align="center">
-											<br>
-											<button class="btn btn-primary btn-sm btn-flat"  style="width: 100%" value="button2" id="submit2" ><i class="fa fa-search"></i> Download Excel</button>
-											<!-- <input class="btn btn-primary btn-sm btn-flat"  style="width: 100%" type="submit" name="button1" value="Export To Excel"/> -->
-										</div>
-						    	</form>
+										</form>
+								<div class="col-md-6" align="center">
+									<br>
+									<form method="post" target="_blank" action="<?php echo base_url('Laporan/getHasil/1'); ?>">
+										<input type="hidden" name="tanggalawal" id="tglawal" value="">
+										<input type="hidden" name="tanggalakhir" id="tglakhir" value="">
+										<button type="submit" class="btn btn-primary btn-sm btn-flat"  style="width: 100%" value="button2"><i class="fa fa-search"></i> Download Excel</button>
+									</form>
+									<!-- <input class="btn btn-primary btn-sm btn-flat"  style="width: 100%" type="submit" name="button1" value="Export To Excel"/> -->
+								</div>
 						    </div> 
 						</div>
 						<div class="box box-primary box-solid">

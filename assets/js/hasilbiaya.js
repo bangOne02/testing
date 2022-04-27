@@ -11,6 +11,14 @@ $(document).ready(function(){
     }
 	});
 
+	$("#ttglawal").change(function(){
+		$("#tglawal").val($(this).val());
+	});
+
+	$("#ttglakhir").change(function(){
+		$("#tglakhir").val($(this).val());
+	});
+
 	var form_config = {button: null};
 
 	$("#submit1").click(function(){

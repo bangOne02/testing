@@ -75,7 +75,7 @@ class Laporan extends CI_Controller {
 					db.feeinap,db.biayalain,db.feedriver,db.lemburdriver,(db.feedriver + db.lemburdriver) AS totalfeedriver, db.feekernet, db.lemburkernet, 
 					(db.feekernet + db.lemburkernet) AS totalfeekernet,db.keterangan
 				FROM tbl_detail_biaya db) AS t1) db ON d.id = db.id
-				WHERE b.id = '".$id."' order by d.id asc
+				WHERE b.id = '".$id."' and db.totalbiaya2 > 0 order by d.id asc
 		")->result();
 		header("Content-type: application/vnd-ms-excel");
  		header("Content-Disposition: attachment; filename=formreportbiaya_".$data['hasil'][0]->nomor_kasbon.".xls"); 
@@ -887,7 +887,7 @@ else
 			LEFT JOIN tbl_pelabuhan pl ON pl.`id_mpelabuhan` = s.`tujuan`
 			LEFT JOIN tbl_depo dp ON dp.id_mdepo = s.`tujuan` 
 			LEFT JOIN tbl_plant pt ON pt.`id_mplant` = s.`tujuan`	 
-			where b.id in ".$a."
+			where b.id in ".$a." and t1.totalbiaya2 > 0
 		")->result();	
 
 		$tanggal = date("Y-m-d H:i:s");

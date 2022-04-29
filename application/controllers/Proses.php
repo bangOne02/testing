@@ -246,7 +246,7 @@ class Proses extends CI_Controller{
 			$namadriver = $this->input->post('namadriver');
 			$nopol = $this->input->post('nopol');
 			$temperatur = $this->input->post('temperatur');
-			$nocontainer = strtoupper(preg_replace('/\s+/', '', $this->input->post('nocontainer')));;
+			$nocontainer = strtoupper(preg_replace('/\s+/', '', $this->input->post('nocontainer')));
 			if ($nocontainer == '')
 			{
 				$nocontainer = 0;
@@ -338,13 +338,23 @@ class Proses extends CI_Controller{
 				  {
 					  if (strlen($nocontainer) > 8)
 					  {
-				  		$data_send_1 = array(
-						      'container' => $nocontainer
-						);
 
-						$insert = $this->M_codeigniter->insert('tbl_container_rent', $data_send_1);
-						$id = $this->db->insert_id();
-				  		$nocontainer = $id;
+						$ex = $this->M_codeigniter->get_where('tbl_container_rent' , array('container' => $nocontainer,'active' => 0));
+						if ($ex->num_rows() < 1)
+						{
+							$data_send_1 = array(
+									'container' => $nocontainer,
+									'userupdate' => $id_admin
+							);
+	
+							$insert = $this->M_codeigniter->insert('tbl_container_rent', $data_send_1);
+							$id = $this->db->insert_id();
+							$nocontainer = $id;
+						} else
+						{
+							$nocontainer = $ex->result()[0]->id;
+						}
+
 					  } else
 					  {
 						$data_send_1 = array(

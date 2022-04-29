@@ -49,6 +49,27 @@ $(document).ready(function(){
 		});
    });
 
+   $('#form_add_container').submit(function(e){
+		e.preventDefault();
+		$.ajax({
+			url: base_url+"Kendaraan/insertContainer",
+			type: 'post',
+			dataType: 'json',
+			data : new FormData(this),
+			cache : false,
+			contentType : false,
+			processData : false,
+			success:function(data){
+				if(data['status'] == 1){
+					listHistCont();
+					toastr.success("Insert berhasil");
+				}else{
+					toastr.error('Ups..! Container Sudah Ada !');
+				}
+			}
+		});
+   });
+
    $('#form_add_suhu').submit(function(e){
 	e.preventDefault();
 	$.ajax({

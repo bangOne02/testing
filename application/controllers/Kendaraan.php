@@ -228,6 +228,33 @@ class Kendaraan extends CI_Controller {
 		$this->load->view('component/main', $data);
 	}
 
+	public function insertContainer(){
+		$id_admin = $this->session->userdata('id_admin');
+		$nomorcontainer = strtoupper(preg_replace('/\s+/', '', $this->input->post('nomorcontainer')));
+
+		$ex = $this->M_codeigniter->get_where('tbl_container_rent' , array('container' => $nomorcontainer,'active' => 0));
+
+		$insert = false;
+		if ($ex->num_rows() < 1)
+		{
+			$data_send_1 = array(
+				'container'=> $nomorcontainer,
+				'userupdate'=> $id_admin,
+				'dateupdate'=> date('Y-m-d H:i:s')
+			);
+
+			$insert = $this->M_codeigniter->insert('tbl_container_rent', $data_send_1);
+		} 
+
+		if($insert){
+			$output = array('status' => 1);
+		}else{
+			$output = array('status' => 0);
+		}
+
+		echo json_encode($output);
+	}
+
 	public function insertDataSuhu(){
 		$id_admin = $this->session->userdata('id_admin');
 		$id = $this->input->post('idcontainer');

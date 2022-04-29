@@ -427,7 +427,7 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 				<td>
 					PIC_1
 				</td>
-				<td><input style="text-transform:uppercase" class="form-control" name="pic1" value=""  placeholder="" > </td>
+				<td><input style="text-transform:uppercase" class="form-control" name="pic1" value=""  placeholder="" required> </td>
 			</tr>	
 			<tr>
 				<td>
@@ -918,7 +918,7 @@ $('.select2').select2({width:'100%',placeholder: '-- select one --'});
 				<td>
 					PIC_2
 				</td>
-				<td><input style="text-transform:uppercase" class="form-control" name="pic2" value=""  placeholder="" > </td>
+				<td><input style="text-transform:uppercase" class="form-control" name="pic2" value=""  placeholder="" required> </td>
 			</tr>
 			<tr>
 				<td>

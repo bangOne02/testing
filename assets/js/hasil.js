@@ -60,6 +60,7 @@ $(document).ready(function(){
 						$('#table_1').DataTable({ 
 							"scrollY": "400px",
 							"scrollX": "100%",
+							"order": [[ 1, "asc" ]],
 							"bLengthChange": false,
 							"pageLength": 10000,
 							"fnInitComplete": function(oSettings) {

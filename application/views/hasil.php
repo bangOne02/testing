@@ -28,7 +28,7 @@
   margin: 12px 0;
   cursor: pointer;
   position: relative;">
-						  <input type="radio" id="ukuran" name="size" value="0" style="margin: 0px 0 0;"><span class="circle" ></span><span class="text" style="color: var(--second-color);
+						  <input type="radio" id="ukuran" name="size" disabled value="0" style="margin: 0px 0 0;"><span class="circle" ></span><span class="text" style="color: var(--second-color);
   font-weight: bold;">&nbsp;REALISASI KEBERANGKATAN</span>
 						<!--   <label for="male">KECIL</label><br>
 						  <input type="radio" id="female" name="gender" value="female">
@@ -62,6 +62,8 @@
 				<div class="col-md-6" align="center">
 					<br>
 					<form method="post" target="_blank" action="<?php echo base_url('Laporan/getHasil/1'); ?>">
+						<!-- <input type="radio" id="ukuran" name="size" value="1"  checked="true" style="margin: 0px 0 0;"> -->
+						<input type="hidden" name="size" id="sizee" value="1">
 						<input type="hidden" name="tanggalawal" id="tglawal" value="">
 						<input type="hidden" name="tanggalakhir" id="tglakhir" value="">
 						<button type="submit" class="btn btn-primary btn-sm btn-flat"  style="width: 100%" value="button2"><i class="fa fa-search"></i> Download Excel</button>

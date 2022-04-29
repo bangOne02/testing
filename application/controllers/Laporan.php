@@ -227,7 +227,7 @@ if ($size == 1)
 			  LEFT JOIN tbl_kendaraan dk ON dk.id = kd.nomorpolisi
 			  LEFT JOIN tbl_p_revisi r ON r.rfk_nosj = sj.id
 	          WHERE (sj.tanggalberangkat >= '".$tanggalawal."' and sj.tanggalberangkat <= '".$tanggalakhir."') AND sj.`jns_tujuan` = 0) as tbl1
-	          ORDER BY tbl1.`TANGGAL RENCANA KEBRKT` ASC
+	          ORDER BY tbl1.`NOMOr SURAT JALAN` ASC
 		")->result();		
 }
 else
@@ -367,7 +367,7 @@ else
 			  LEFT JOIN tbl_kendaraan dk ON dk.id = kd.nomorpolisi
 			  LEFT JOIN tbl_p_revisi r ON r.rfk_nosj = sj.id
 	          WHERE (kb.tglberangkat >= '".$tanggalawal."' and kb.tglberangkat <= '".$tanggalakhir."') AND sj.`jns_tujuan` = 0) as tbl1
-	          ORDER BY tbl1.`TANGGAL RENCANA KEBRKT` ASC
+	          ORDER BY tbl1.`NOMOr SURAT JALAN` ASC
 		")->result();
 
 }		

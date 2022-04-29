@@ -40,7 +40,7 @@
               <div class="box box-primary box-solid">
                 <div class="box-header with-border" style="height: 39px;">
                   <div class="box-tools pull-right">
-                      <button type="button" class="btn btn-box-tool call-refresh"><i class="fa fa-refresh"></i> REEFRESH</button>
+                      <button type="button" class="btn btn-box-tool call-refresh"><i class="fa fa-refresh"></i> REFRESH</button>
                   </div>
                  
                 </div>

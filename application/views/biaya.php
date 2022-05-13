@@ -42,8 +42,7 @@ if ($admin_name != 'accounting' && $admin_name != 'checker1' && $admin_name != '
 					    	<div class="col-md-12">
 									<div class="form-group">
 										<br>
-										<label>TANGGAL KASBON
-										</label>
+										<label>TANGGAL KASBON</label>
 										<input class="form-control date" data-date-format="dd-mm-yyyy" style="height: fit-content;" placeholder="INPUT TANGGAL KASBON" id="tanggal2" name="tanggal" autocomplete="off" required>
 									</div> 
 							</div>
@@ -110,6 +109,20 @@ if ($admin_name != 'accounting' && $admin_name != 'checker1' && $admin_name != '
 <?php
 } 
 ?>
+
+<div class="modal fade" id="modal-update-biaya">
+  <div class="modal-dialog" style="width: 80%;margin: auto;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Form Update</h4>
+      </div>
+      <div id="target-update-biaya" class="modal-body">
+      </div> 
+    </div>
+  </div>
+</div>
 
 <div class="modal fade" id="modal-preview" role="dialog">
   <div class="modal-dialog" style="width: 80%;margin: auto;">

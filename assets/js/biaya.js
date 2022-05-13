@@ -126,6 +126,20 @@ $(document).ready(function(){
 			});
 	});
 
+	$('#list_table_biaya').on('click','.call-data-update-biaya', function(){
+			var $id = $(this).data('id');
+			$.ajax({
+				url : base_url+'SuratJalan/formUpdateMasterBiaya',
+				type: 'post',
+				dataType: 'json',
+				data: {id:$id},
+				success:function(data){
+					$('#target-update-biaya').html(data['html']);
+					$('.select2').select2({width:'100%',placeholder: '-- select one --'});
+				}
+			});
+	});
+
 	$('#list_table_biaya').on('click','.call-data-preview',function(){
 	//	$("#target-preview").removeClass();
 		var $id = $(this).data('id');
@@ -462,8 +476,31 @@ $(document).ready(function(){
 			processData : false,
 			success:function(data){
 				if(data['status'] == 1){
-					list();
+					listtablebiaya();
 				 	$('#modal-update').modal('hide');
+				 	toastr.success('Update berhasil');
+				}else{
+				 	toastr.error('Ups..! Update gagal !');
+				}
+			}
+		});
+	});
+
+	$('#target-update-biaya').on('submit','#form-update-master-biaya', function(e){
+		e.preventDefault();
+
+		$.ajax({
+			url: base_url+"SuratJalan/prosesUpdateMasterBIaya",
+			type: 'post',
+			dataType: 'json',
+			data : new FormData(this),
+			cache : false,
+			contentType : false,
+			processData : false,
+			success:function(data){
+				if(data['status'] == 1){
+					listtablebiaya();
+				 	$('#modal-update-biaya').modal('hide');
 				 	toastr.success('Update berhasil');
 				}else{
 				 	toastr.error('Ups..! Update gagal !');

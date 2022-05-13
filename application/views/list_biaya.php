@@ -12,7 +12,8 @@
 						<th>AMOUNT</th>
 						<th>TANGGAL KASBON</th>
 						<th>TANGGAL DOWNLOAD</th>
-						<th><center>INPUT DETAIL BIAYA</center></th>
+						<th><center>EDIT</center></th>
+						<th><center>INPUT DETAIL BIAYA</center></th>						
 					    <th><center>REPORT BIAYA</center></th>
 					    <th><center>FILE DOWNLOAD</center></th>
 					    <th><center>STATUS CHECKER 1</center></th>
@@ -58,6 +59,23 @@
 					</td> -->
 					<td><?php echo "".strtoupper($row->tanggal); ?></td>
 					<td><?php echo "".strtoupper($row->download); ?></td>
+					<td> 
+			            <div class="btn-group-horizontal">
+                          <?php
+					          $admin_name = $this->session->userdata('admin_name');
+					          if ($admin_name == 'accounting' or $admin_name == 'checker1' or $admin_name == 'checker2'  or $admin_name == 'admin' or $row->statchecker1 == 1)
+					          { ?>
+					          		<center><button type="button" class="btn btn-info btn-sm" disabled="true" data-toggle="modal"><i class="fa fa-edit"></i></button></center>
+					          <?php
+					          } else
+					          { ?>		
+					          		<center>
+					          			<button type="button" class="btn btn-info btn-sm call-data-update-biaya" data-toggle="modal" data-target="#modal-update-biaya" data-id="<?php echo $row->id; ?>"><i class="fa fa-edit"></i></button>
+									</center>
+					          <?php
+					          } ?>		
+			            </div>
+					</td>
 					<td> 
 			            <div class="btn-group-horizontal">
                           <?php

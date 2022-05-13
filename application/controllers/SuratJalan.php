@@ -886,6 +886,16 @@ class SuratJalan extends CI_Controller {
 		);
 		echo json_encode($output);
 	}
+
+	function formUpdateMasterBiaya(){
+		$id = $this->input->post('id');
+		$table = $this->M_codeigniter->get_where('tbl_biaya', array('id' => $id))->result()[0];
+		$data['table'] = $table;
+		$output = array(
+			'html' => $this->load->view('update_master_biaya', $data, true),
+		);
+		echo json_encode($output);
+	}
 	
 	public function history(){
 		$id_admin = $this->session->userdata('id_admin');
@@ -1396,6 +1406,36 @@ class SuratJalan extends CI_Controller {
 			$output = array('status' => 1);
 		}else{
 			$output = array('status' => 0);
+		}
+
+		echo json_encode($output);
+	}
+
+	function prosesUpdateMasterBiaya(){
+
+		$id_admin = $this->session->userdata('id_admin');
+		$id	= $this->input->post('id');
+		$nomorkasbon = $this->input->post('nomorkasbon');
+		$tanggal = $this->input->post('tanggal');
+		$tanggal = date('Y-m-d',strtotime($tanggal));
+		$nominal = $this->input->post('nominal');
+
+		$data_send_2 = array(
+				'nomor_kasbon' => $nomorkasbon,
+				'tanggal' => $tanggal,
+				'nominal' => $nominal
+		);
+
+		$update = $this->M_codeigniter->update('tbl_biaya', $data_send_2, array('id' => $id));
+
+		if($update){
+			$output = array(
+				'status' => 1,
+			);
+		}else{
+			$output = array(
+				'status' => 0
+			);
 		}
 
 		echo json_encode($output);

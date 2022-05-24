@@ -29,6 +29,7 @@
                     <th widht="5%" style="text-align: left;">JAM</th>
 					<th width="10%" style="text-align: left;">SUHU</th>
 					<th width="10%" style="text-align: left;">PIC</th>
+                    <th width="10%" style="text-align: left;">LOCATION</th>
 					<th width="60%" style="text-align: left;">KETERANGAN</th>
 				</tr>
 			</thead>
@@ -45,6 +46,7 @@
 					<td style="text-align: left;"><?php echo $row->hour; ?></td>
 					<td style="text-align: left;"><?php echo $row->suhu; ?></td>
 					<td style="text-align: left;"><?php echo strtoupper($row->pic); ?></td>
+                    <td style="text-align: left;"><?php echo strtoupper($row->fk_plant); ?></td>
 					<td style="text-align: left;"><?php echo strtoupper($row->keterangan); ?></td>
 				</tr>
             <?php

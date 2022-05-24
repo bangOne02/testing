@@ -767,13 +767,13 @@ else
 	function reportContainer($id = 0){
 		
 		$data['hasil'] = $this->M_codeigniter->query("
-				SELECT *,c.id,c.container,CONCAT(SUBSTRING(jam,1,2),':','00') AS `hour`
+				SELECT *,c.id,c.container,CONCAT(SUBSTRING(jam,1,2),':','00') AS `hour`,a.fk_plant
 				FROM tbl_suhu s LEFT JOIN 
 				(
 				SELECT * FROM tbl_container
 				UNION
 				SELECT * FROM tbl_container_rent
-				) AS c ON c.id = s.idcontainer
+				) AS c ON c.id = s.idcontainer LEFT JOIN tbl_admin a on a.id_admin = s.insert_by
 				WHERE idcontainer = '".$id."'	
 				GROUP BY tanggal,`hour`
 		")->result();

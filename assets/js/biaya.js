@@ -587,14 +587,14 @@ function listtablebiaya($tanggal=0){
 		        "columnDefs" : [
 		            { 'type': 'num', 'targets': 0},
 		            {
-		                "targets": [ 14 ],
+		                "targets": [ 15 ],
 		                "visible": false
 		            }
 		        ],
 				"language" : {
 	        		searchPlaceholder: ""
 	    		},
-	      	    "order": [[ 14, "desc" ]],
+	      	    "order": [[ 15, "desc" ]],
                 "initComplete": function (settings, json) {  
 				    $("#table_1_biaya").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
 				}, 

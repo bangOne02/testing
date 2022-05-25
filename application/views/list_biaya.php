@@ -57,7 +57,7 @@
 						?>
 						</center>
 					</td> -->
-					<td><?php echo "".strtoupper($row->tanggal); ?></td>
+					<td><?php echo "".strtoupper(date('d-m-Y',strtotime($row->tanggal))); ?></td>
 					<td><?php echo "".strtoupper($row->download); ?></td>
 					<td> 
 			            <div class="btn-group-horizontal">

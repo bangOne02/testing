@@ -3,8 +3,7 @@
 		$('.date').datepicker({
 			locale: {
 			dateFormat: 'YYYY-MM-DD'
-			},
-			startDate : currDate,
+			}
 		});
 </script>
 
@@ -23,7 +22,7 @@
                     <div class="form-group">
                         <br>
                         <label>TANGGAL KASBON</label>
-                            <input class="form-control date" data-date-format="dd-mm-yyyy" style="height: fit-content;" placeholder="INPUT TANGGAL KASBON" id="tanggal2" name="tanggal" value="<?php echo $table->tanggal; ?>" autocomplete="off" required>
+                            <input class="form-control date" data-date-format="dd-mm-yyyy" style="height: fit-content;" placeholder="INPUT TANGGAL KASBON" id="tanggal2" name="tanggal" value="<?php echo date('d-m-Y',strtotime($table->tanggal)); ?>" autocomplete="off" required>
 					</div>
                 </div>
                 <div class="col-md-12">

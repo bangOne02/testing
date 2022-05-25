@@ -262,6 +262,23 @@
                   </span>
                 </a>
               </li>
+              <li class="header">KELUAR APLIKASI</li>
+              <li>
+                    <a href="<?php echo base_url('Users/gantiPassword/') ?>">
+                      <i class="fa fa-money"></i><span>&nbsp;GANTI PASSWORD</span>
+                      <span class="pull-right-container">
+                        <small class="label pull-right bg-green"></small>
+                      </span>
+                    </a>
+              </li>
+              <li>
+                <a href="<?php echo base_url('Login/logout/') ?>">
+                  <i class="fa fa-sign-out"></i><span>&nbsp;LOG OUT</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+              </li>
           <?php   
           } else 
           {?>

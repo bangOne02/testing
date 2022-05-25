@@ -250,6 +250,18 @@
                   </span>
                 </a>
               </li>
+
+              <?php
+          } else if ($admin_name == 'cs')
+          { ?>
+              <li>
+                <a href="<?php echo base_url('Kendaraan/histCont'); ?>">
+                  <i class="fa fa-book"></i><span>&nbsp;HISTORY CONTAINER</span>
+                  <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                  </span>
+                </a>
+              </li>
           <?php   
           } else 
           {?>

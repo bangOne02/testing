@@ -287,10 +287,10 @@ class Kendaraan extends CI_Controller {
 		$admin_name = $this->session->userdata('admin_name');
 		if ($admin_name == 'userkendaraan')
 		{
-			$data['table'] = $this->M_codeigniter->query("SELECT * from tbl_request_user where nid = '".$id_admin."'")->result();
+			$data['table'] = $this->M_codeigniter->query("SELECT * from tbl_request_user where tanggal >= CURDATE() and nid = '".$id_admin."'")->result();
 		} else
 		{
-			$data['table'] = $this->M_codeigniter->query("SELECT * from tbl_request_user")->result();
+			$data['table'] = $this->M_codeigniter->query("SELECT * from tbl_request_user where tanggal >= CURDATE()")->result();
 		}
 
 	

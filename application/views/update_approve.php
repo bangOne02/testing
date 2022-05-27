@@ -75,8 +75,10 @@
 	    		</div>
                 <div class="form-group">
 	    			<label>ESTIMASI WAKTU KEDATANGAN</label>
-                    <input style="text-transform:uppercase" placeholder="00:00 AM" class="form-control timepicker" type="time" value="<?php echo $request->timefinish; ?>"  name="jamfinish" required>
-	    		</div>
+                    <!-- <input style="text-transform:uppercase" placeholder="00:00 AM" class="form-control timepicker" type="time" value="<?php echo $request->timefinish; ?>"  name="jamfinish" required> -->
+					<input style="text-transform:uppercase" placeholder="00:00 AM" class="form-control" min="06:00:00" max="21:00:00" type="time" value="<?php echo $request->timefinish; ?>"  name="jamfinish"
+							required><span class="validity"></span>	
+				</div>
 				<!-- <div class="form-group">
 	    			<label>NOMOR SURAT JALAN</label>
                     <select style="text-transform:uppercase" class="form-control select2" name="idsj">

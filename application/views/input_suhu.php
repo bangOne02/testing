@@ -36,7 +36,7 @@
 								<div class="form-group">
 									<br>
 					    			<label>SUHU</label>
-										<input style="text-transform:uppercase" type="number" step="0.01" placeholder="" class="form-control" id="nkasbon" name="suhu" required>
+										<input style="text-transform:uppercase" type="number" step="0.01" value="-0" placeholder="" class="form-control" id="nkasbon" name="suhu" required>
 					    		</div>
 					    	</div>
 					    	<div class="col-md-12">

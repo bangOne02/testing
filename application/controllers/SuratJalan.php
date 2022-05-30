@@ -871,15 +871,17 @@ class SuratJalan extends CI_Controller {
 		$data['costcenter'] = $this->M_codeigniter->get('tbl_costcenter')->result();
 		$data['glaccount'] = $this->M_codeigniter->get('tbl_general_ledger')->result();
 		$data['suratjalan'] = $this->M_codeigniter->query("
-			SELECT s.id,s.nomorsj,CONCAT(s.`nomorsj`,' | ',IFNULL(DATE_FORMAT(pk.`tglberangkat`,'%d/%m/%Y'),''),' | ',pk.jamkeluar,' | ',k.nopol,' | ',IFNULL(d.nama_mdriver,s.`sopir`),' | ',IFNULL(p.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))) AS nomorsjj
+			SELECT s.id,s.nomorsj,CONCAT(s.`nomorsj`,' | ',IFNULL(DATE_FORMAT(IFNULL(pb.`tglberangkat`,''),'%d/%m/%Y'),''),' | ',IFNULL(pb.jamkeluar,''),' | ',IFNULL(kk.nopol,''),' | ',IFNULL(db.nama_mdriver,s.`sopir`),' | ',IFNULL(p.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))) AS nomorsjj
 			FROM tbl_suratjalan s LEFT JOIN tbl_driver d ON s.sopir = d.id_mdriver
 			LEFT JOIN tbl_pelabuhan p ON p.`id_mpelabuhan` = s.`tujuan`
 			LEFT JOIN tbl_depo dp ON dp.id_mdepo = s.`tujuan` 
 			LEFT JOIN tbl_plant pt ON pt.`id_mplant` = s.`tujuan`
 			LEFT JOIN tbl_kendaraan k ON k.id = s.kendaraan
-			LEFT JOIN tbl_p_kendaraan pk ON pk.fk_idsj = s.nomorsj
-			WHERE s.active = 0 AND s.tanggalberangkat > '2021-11-07' 
-			")->result();
+			LEFT JOIN tbl_p_keberangkatan pb ON pb.fk_idsj = s.id 
+			LEFT JOIN tbl_kendaraan kk ON kk.id = pb.nomorpolisi
+			LEFT JOIN tbl_driver db ON db.`id_mdriver` = pb.namasopir
+			WHERE s.active = 0 AND pb.tglberangkat > '2021-10-07' AND s.id NOT IN (SELECT id_sj FROM tbl_detail_biaya)	
+		")->result();
 		$data['data_detail'] = $dataDetail;
 		$output = array(
 			'html' => $this->load->view('update_detail_biaya', $data, true),

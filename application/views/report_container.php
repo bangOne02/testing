@@ -1,18 +1,4 @@
-<div class="row">
-	<div class="col-md-12">
-	  	
-		<table width='100%' style="border-collapse: collapse;">
-            <tr>
-                <!-- <td width="25%">
-                    <img src="<?php echo base_url('assets/img/header.png')?>" style="width: 170px;height: 100px;">
-                </td>  -->
-                <td width="100%" style="font-size:25px;" colspan="6">
-                   <center><b>&nbsp;<font>MONITORING SUHU CONTAINER / KENDARAAN BERPENDINGIN</font>&nbsp;</b></center>
-                </td>  
-            </tr> 
-        </table>
-	</div>
-</div>
+
 <br>
 <div class="table-responsive">    
         <table>

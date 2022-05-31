@@ -260,13 +260,15 @@ class Kendaraan extends CI_Controller {
 		$id = $this->input->post('idcontainer');
 		$pic = $this->input->post('pic');
 		$suhu = $this->input->post('suhu');
+		$tanggal = date('Y-m-d',strtotime($this->input->post('tanggal')));
+		$jam = $this->input->post('jam');
 		$keterangan = $this->input->post('keterangan');
 		$data_send_1 = array(
 				'pic'=> $pic,
 				'suhu'=> $suhu,
 				'keterangan'=> $keterangan,
-				'tanggal'=> date('Y-m-d'),
-				'jam'=> date('H:i:s'),
+				'tanggal'=> $tanggal,
+				'jam'=> $jam,
 				'idcontainer'=> $id,
 				'insert_by'=> $id_admin
 		);

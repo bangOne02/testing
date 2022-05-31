@@ -39,6 +39,21 @@
 										<input style="text-transform:uppercase" type="number" step="0.01" value="-0" placeholder="" class="form-control" id="nkasbon" name="suhu" required>
 					    		</div>
 					    	</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<br>
+					    			<label>TANGGAL</label>
+									<input class="form-control date" data-date-format="dd-mm-yyyy" placeholder=""  name="tanggal" autocomplete="off" style="height: fit-content;" required>
+					    		</div>
+					    	</div>
+                            <div class="col-md-6">
+								<div class="form-group">
+									<br>
+					    			<label>JAM</label>
+									<input style="text-transform:uppercase" placeholder="00:00 AM" class="form-control" type="time"  name="jam"
+                                		required><span class="validity"></span>	
+					    		</div>
+					    	</div>
 					    	<div class="col-md-12">
 								<div class="form-group">
 									<br>
@@ -71,4 +86,20 @@
 					  <div id="list_table_suhu" class="box-body"></div>
 					</div>
           </div>
+</div>
+
+
+<div class="modal fade" id="modal-update">
+  <div class="modal-dialog" style="width: 80%;margin: auto;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">FORM UPDATE</h4>
+      </div>
+      <div id="target-update-suhu" class="modal-body">
+        
+      </div> 
+    </div>
+  </div>
 </div>

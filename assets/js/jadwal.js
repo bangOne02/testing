@@ -14,13 +14,13 @@ $(document).ready(function(){
 		$('.call-add-request').show('slow');
 	});
 
-  // $('.date').datepicker({
-		// locale: {
-	 //    	dateFormat: 'YYYY-MM-DD'
-	 //    }
-  // });
+	$('.date').datepicker({
+			locale: {
+				dateFormat: 'YYYY-MM-DD'
+			}
+	});
 
-  $('.call-refresh').click(function(){
+    $('.call-refresh').click(function(){
 		listRequest();
 	});
 
@@ -139,6 +139,20 @@ $(document).ready(function(){
 		});
    });
 
+   $('#list_table_suhu').on('click','.call-data-update',function(){
+		var $id = $(this).data('id');
+		$.ajax({
+			url : base_url+'Diagram/formUpdateSuhu',
+			type: 'post',
+			dataType: 'json',
+			data: {id:$id},
+			success:function(data){
+				$('#target-update-suhu').html(data['html']);
+				$('.select2').select2({width:'100%',placeholder: '-- select one --'});
+			}
+		});
+	});
+
    $("#btn-tgl").click(function(){
 		var $tanggal = $('#tanggal').val();
 		var url = base_url+'Kendaraan/jadwalKeberangkatan';
@@ -175,6 +189,25 @@ $(document).ready(function(){
 			success:function(data){
 				if(data['status'] == 1){
 					listChasis();
+				 	$('#modal-update').modal('hide');
+				 	toastr.success('Update berhasil');
+				}else{
+				 	toastr.error('Ups..! Update gagal !');
+				}
+			}
+		});
+	});
+
+	$('#target-update-suhu').on('submit','#form-update',function(e){
+		e.preventDefault();
+		$.ajax({
+			url : base_url+'Diagram/prosesUpdateSuhu',
+			type: 'post',
+			dataType: 'json',
+			data: $(this).serialize(),
+			success:function(data){
+				if(data['status'] == 1){
+					listSuhu($('#idcontainer').val());
 				 	$('#modal-update').modal('hide');
 				 	toastr.success('Update berhasil');
 				}else{
@@ -302,7 +335,7 @@ function listSuhu(nocontainer){
 			"bInfo" : false,
 		      "pageLength": 15,
 			  "bLengthChange": false,
-			  "order": [[ 7, "desc" ]],
+			  "order": [[ 1, "desc" ],[2, 'desc']],
               "initComplete": function (settings, json) {  
 		    		$("#table_1_suhu").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
 			  }, 

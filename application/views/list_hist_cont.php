@@ -18,8 +18,21 @@
 					<td><?php echo strtoupper($row->container); ?></td>
 					<td>
 			            <div class="btn-group-horizontal">
+						<?php
+						$username = $this->session->userdata('username');
+						if ($username != 'teknikdampit')
+						{
+						?>
 			              <center><a class="btn btn-success btn-sm btn-flat" style="background-color: #005b71;" href="<?php echo base_url('Kendaraan/inputContainer/?idcontainer='.$row->id.'&nocontainer='.$row->container); ?>">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INPUT SUHU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
 							</center>
+						<?php
+						} else
+						{ ?>
+							<center><a class="btn btn-success btn-sm btn-flat" disabled style="background-color: #005b71;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INPUT SUHU&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+							</center>
+						<?php	
+						}
+						?>
 						</div>
 				    </td>
 					<td>

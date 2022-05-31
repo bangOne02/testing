@@ -473,6 +473,15 @@ class Diagram extends CI_Controller {
 		echo json_encode($output);
 	}
 
+	function formUpdateSuhu(){
+		$id = $this->input->post('id');
+		$data['table'] = $this->M_codeigniter->get_where('tbl_suhu', array('id' => $id))->result()[0];
+		$output = array(
+			'html' => $this->load->view('update_suhu',$data,true),
+		);
+		echo json_encode($output);
+	}
+
 	function prosesUpdateChasis(){
 
 		$id_admin = $this->session->userdata('id_admin');
@@ -519,7 +528,40 @@ class Diagram extends CI_Controller {
 			);
 		}
 		echo json_encode($output);
+	}
 
+	function prosesUpdateSuhu(){
+		$id_admin = $this->session->userdata('id_admin');
+		$id	= $this->input->post('id');
+		$jam = $this->input->post('jam');
+		$suhu = $this->input->post('suhu');
+		$tanggal = date('Y-m-d',strtotime($this->input->post('tanggal')));
+		$pic = $this->input->post('pic');
+		$keterangan = $this->input->post('keterangan');
+
+		$cek = $this->M_codeigniter->get_where('tbl_suhu', array('id' => $id))->num_rows();
+		if($cek == 1){
+			$data_send_2 = array(
+				'pic' 	=> $pic,
+				'tanggal' => $tanggal,
+				'jam' => $jam,
+				'suhu' => $suhu,
+				'keterangan' => $keterangan
+			);
+			$update = $this->M_codeigniter->update('tbl_suhu', $data_send_2, array('id' => $id));
+			
+		}else{$update=false;}
+		if($update){
+			$output = array(
+				'status' => 1,
+			);
+		}else{
+			$output = array(
+				'status' => 0
+			);
+		}
+
+		echo json_encode($output);
 
 	}
 

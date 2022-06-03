@@ -9,8 +9,10 @@
 				<th style="width: 50%;">PIC</th>
 				<th style="width: 20%;">LOKASI</th>
 				<th style="width: 20%;">KETERANGAN</th>
-				<th style="width: 10%;">ID</th>
+				
 				<th style="width: 20%;">ACTION</th>
+				<th style="width: 10%;">ID</th>
+				<th style="width: 20%;">TANGGALL</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -23,7 +25,7 @@
 				<td><?php echo strtoupper($row->pic); ?></td>
 				<td><?php echo strtoupper($row->fk_plant); ?></td>
 				<td><?php echo strtoupper($row->keterangan); ?></td>
-				<td><?php echo "".strtoupper($row->id); ?></td>
+				
 				<td>
 					<div class="btn-group-horizontal">
 						<?php
@@ -42,6 +44,8 @@
 						} ?>
 					</div>
 				</td>
+				<td><?php echo "".strtoupper($row->id); ?></td>
+				<td><?php echo strtoupper($row->tanggal); ?></td>
 			</tr>
 			<?php 
 			$no++;

@@ -1,4 +1,6 @@
+
 $(document).ready(function(){
+
 	$('.datepicker').datepicker({
     	autoclose: true,
     	format: 'dd/mm/yyyy',todayHighlight: true,
@@ -332,19 +334,20 @@ function listSuhu(nocontainer){
 		}); 
  
 	    $('#table_1_suhu').DataTable({
-			"bInfo" : false,
+			  "bInfo" : false,
 		      "pageLength": 15,
 			  "bLengthChange": false,
-			  "order": [[ 1, "desc" ],[2, 'desc']],
               "initComplete": function (settings, json) {  
 		    		$("#table_1_suhu").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
 			  }, 
-			  "columnDefs": [
-		            {
-		                "targets": [ 7 ],
-		                "visible": false
-		            }
-		      ],
+			  "columnDefs" : [
+				{ 'type': 'num', 'targets': 0},
+				{
+					"targets": [ 8,9 ],
+					"visible": false
+				}
+			  ],
+			  "order": [[ 9, "desc" ]],
 			  "rowCallback": function (nRow, aData, iDisplayIndex) {
 					 var oSettings = this.fnSettings ();
 					 $("td:first", nRow).html(oSettings._iDisplayStart+iDisplayIndex +1);

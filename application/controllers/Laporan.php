@@ -43,7 +43,7 @@ class Laporan extends CI_Controller {
 
 	function reportBiaya($id = 0){
 		$data['hasil'] = $this->M_codeigniter->query("
-				SELECT b.`nomor_kasbon`,b.`nominal`,DATE_FORMAT(DATE(b.`created_at`),'%d/%m/%Y') AS tgltotalan,IFNULL(dbd.nama_mdriver,s.`sopir`) AS sopir,UPPER(k.`nopol`) AS nopol,
+				SELECT b.`nomor_kasbon`,b.`nominal`,DATE_FORMAT(DATE(b.`created_at`),'%d/%m/%Y') AS tgltotalan,IFNULL(dbd.nama_mdriver,s.`sopir`) AS sopir,UPPER(kkk.`nopol`) AS nopol,
 				DATE_FORMAT(p.`tglberangkat`,'%d-%m-%Y') AS tglberangkat,
 				CONCAT(UPPER(s.asalsj),' - ',UPPER(IFNULL(pl.`nama_mpelabuhan`,IFNULL(dp.`nama_mdepo`,IFNULL(pt.`nama_mplant`,s.tujuan)))),'  ( ',IFNULL(p.`jenismuatan`,''),'-',IFNULL(pd.jenismuatan,'') , ' / ' ,IFNULL(co.container,''),' ) ') AS tujuan,
 				c.`cost_center` AS costcenter,g.`gl_account` AS glaccount,db.totalbiaya2,a.username
@@ -56,6 +56,7 @@ class Laporan extends CI_Controller {
 				LEFT JOIN tbl_kendaraan k ON k.id = s.`kendaraan`
 				LEFT JOIN tbl_p_keberangkatan p ON p.fk_idsj = s.id
 				LEFT JOIN tbl_driver dbd ON dbd.`id_mdriver` = p.namasopir
+				LEFT JOIN tbl_kendaraan kkk ON kkk.id = p.nomorpolisi
 				LEFT JOIN tbl_p_kedatangan pd ON pd.fk_idsj = s.id
 				LEFT JOIN 
 				(

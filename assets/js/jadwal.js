@@ -347,7 +347,7 @@ function listSuhu(nocontainer){
 					"visible": false
 				}
 			  ],
-			  "order": [[ 9, "desc" ]],
+			  "order": [[ 9, "desc" ],[ 2, "desc" ]],
 			  "rowCallback": function (nRow, aData, iDisplayIndex) {
 					 var oSettings = this.fnSettings ();
 					 $("td:first", nRow).html(oSettings._iDisplayStart+iDisplayIndex +1);

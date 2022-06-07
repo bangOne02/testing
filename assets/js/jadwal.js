@@ -16,7 +16,7 @@ $(document).ready(function(){
 		$('.call-add-request').show('slow');
 	});
 
-	$('.date').datepicker({
+	$('.datee').datepicker({
 			locale: {
 				dateFormat: 'YYYY-MM-DD'
 			}

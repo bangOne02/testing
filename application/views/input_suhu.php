@@ -43,7 +43,7 @@
 								<div class="form-group">
 									<br>
 					    			<label>TANGGAL</label>
-									<input class="form-control date" data-date-format="dd-mm-yyyy" placeholder=""  name="tanggal" autocomplete="off" style="height: fit-content;" required>
+									<input class="form-control datee" data-date-format="dd-mm-yyyy" placeholder=""  name="tanggal" autocomplete="off" style="height: fit-content;" required>
 					    		</div>
 					    	</div>
                             <div class="col-md-6">

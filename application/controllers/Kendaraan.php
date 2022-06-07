@@ -376,10 +376,11 @@ class Kendaraan extends CI_Controller {
 			SELECT c.id,c.container,
 			(
 							SELECT CONCAT(LPAD(s.id, 5, 0),' / ',UPPER(IFNULL(p.`nama_mpelabuhan`,IFNULL(d.`nama_mdepo`,IFNULL(pl.`nama_mplant`,s.tujuan))))) AS tujuan
-							FROM tbl_suratjalan s LEFT JOIN tbl_depo d ON d.`id_mdepo` = s.`tujuan`
+							FROM tbl_suratjalan s LEFT JOIN tbl_p_kedatangan pk ON s.id = pk.fk_idsj
+							LEFT JOIN tbl_depo d ON d.`id_mdepo` = s.`tujuan`
 							LEFT JOIN tbl_pelabuhan p ON p.`id_mpelabuhan` = s.`tujuan`
 							LEFT JOIN tbl_plant pl ON pl.`id_mplant` = s.`tujuan`
-							WHERE s.nocontainer = c.id AND s.proses = 2 ORDER BY s.id DESC LIMIT 1
+							WHERE pk.nocontainer = c.id AND s.proses = 2 ORDER BY s.id DESC LIMIT 1
 						) AS lokasi
 			FROM
 			(

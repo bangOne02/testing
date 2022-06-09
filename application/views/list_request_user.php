@@ -23,7 +23,7 @@
 				<tr id="<?php echo 'tr_'.$row->id; ?>">
 					<td>1</td>
 					<td><?php echo strtoupper($row->user); ?></td>
-					<td><?php echo strtoupper($row->tanggal); ?></td>
+					<td><?php echo strtoupper(date('d-m-Y',strtotime($row->tanggal))); ?></td>
 					<td><?php echo strtoupper($row->timestart); ?></td>
 					<td><?php echo strtoupper($row->keterangan); ?></td>
 					<td><?php echo strtoupper($row->jumlah); ?></td>

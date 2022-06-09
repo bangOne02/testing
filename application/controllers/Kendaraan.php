@@ -390,6 +390,11 @@ class Kendaraan extends CI_Controller {
 			SELECT id,container FROM tbl_container_rent WHERE active = 0
 			) AS c
 		")->result();
+		$data['table2'] = $this->M_codeigniter->query("
+			SELECT id,container,dateupdate FROM tbl_container WHERE active = 1
+			UNION
+			SELECT id,container,dateupdate FROM tbl_container_rent WHERE active = 1
+		")->result();
 		$output = array(
 			'html' => $this->load->view('list_hist_cont', $data, true),
 		);

@@ -113,6 +113,46 @@ $(document).ready(function(){
 		});
 	});
 
+	$('#list_hist_cont').on('click','.datacont-nonactive',function(){
+		//	$("#target-preview").removeClass();
+		var $status = 1;
+		var $id = $(this).data('id');
+		$.ajax({
+			url : base_url+'SuratJalan/updateStatusCont1',
+			type: 'post',
+			dataType: 'json',
+			data: {id:$id,status:$status},
+			success:function(data){
+				if(data['status'] == 1){
+					listHistCont();
+					toastr.success("Berhasil Di Simpan");
+				}else{
+					toastr.error('Ups..! gagal di simpan !');
+				}
+			}
+		});
+	});
+
+	$('#list_hist_cont').on('click','.datacont-active',function(){
+		//	$("#target-preview").removeClass();
+		var $status = 1;
+		var $id = $(this).data('id');
+		$.ajax({
+			url : base_url+'SuratJalan/updateStatusCont2',
+			type: 'post',
+			dataType: 'json',
+			data: {id:$id,status:$status},
+			success:function(data){
+				if(data['status'] == 1){
+					listHistCont();
+					toastr.success("Berhasil Di Simpan");
+				}else{
+					toastr.error('Ups..! gagal di simpan !');
+				}
+			}
+		});
+	});
+
 	$('#list_table_request').on('click','.call-data-approve',function(){
 		var $id = $(this).data('id');
 		$.ajax({
@@ -294,6 +334,26 @@ function listHistCont(){
 			  "order": [[ 5, "desc" ]],
               "initComplete": function (settings, json) {  
 		    		$("#table_1_container").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
+			  }, 
+			  "columnDefs": [
+		            {
+		                "targets": [ 5 ],
+		                "visible": false
+		            }
+		      ],
+			  "rowCallback": function (nRow, aData, iDisplayIndex) {
+					 var oSettings = this.fnSettings ();
+					 $("td:first", nRow).html(oSettings._iDisplayStart+iDisplayIndex +1);
+					 return nRow;
+			  },
+		}).filtersOn();
+		$('#table_1_container2').DataTable({
+			"bInfo" : false,
+		      "pageLength": 15,
+			  "bLengthChange": false,
+			  "order": [[ 5, "desc" ]],
+              "initComplete": function (settings, json) {  
+		    		$("#table_1_container2").wrap("<div style='overflow:auto; width:100%;position:relative;'></div>");            
 			  }, 
 			  "columnDefs": [
 		            {

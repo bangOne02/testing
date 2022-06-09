@@ -701,6 +701,36 @@ class SuratJalan extends CI_Controller {
 		echo json_encode($output);
 	}
 
+	function updateStatusCont1(){
+		$id = $this->input->post('id');
+		$data_send_1 = array(
+				'active' 	=> 1
+		);
+	
+		$update = $this->M_codeigniter->update('tbl_container_rent', $data_send_1, array('id' => $id));
+		if ($update) {
+			$output = array('status' => 1);
+		}else{
+			$output = array('status' => 0);
+		}
+		echo json_encode($output);
+	}
+	
+	function updateStatusCont2(){
+		$id = $this->input->post('id');
+		$data_send_1 = array(
+				'active' 	=> 0
+		);
+	
+		$update = $this->M_codeigniter->update('tbl_container_rent', $data_send_1, array('id' => $id));
+		if ($update) {
+			$output = array('status' => 1);
+		}else{
+			$output = array('status' => 0);
+		}
+		echo json_encode($output);
+	}
+
 	function updateStatusChecker(){
 		$id = $this->input->post('id');
 		$status = $this->input->post('status');

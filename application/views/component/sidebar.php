@@ -118,15 +118,13 @@
               <li class="header">MENU LAPORAN</li>
               <li>
                 <a href="<?php echo base_url('Laporan'); ?>">
-                  <i class="fa fa-files-o"></i><span>&nbsp;FORM MOBILISASI</span>
-                  <span class="pull-right-container">
-                    <span class="label label-primary pull-right">0</span>
-                  </span>
+                  <i class="fa fa-files-o"></i><span>&nbsp;REKAP FORM MOBILISASI</span>
+              
                 </a>
               </li>
               <li>
                 <a href="<?php echo base_url('Laporan/biaya'); ?>">
-                  <i class="fa fa-files-o"></i><span>&nbsp;REPORT BIAYA-BIAYA</span>
+                  <i class="fa fa-files-o"></i><span>&nbsp;REPORT BIAYA</span>
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
@@ -218,15 +216,13 @@
               <li class="header">MENU LAPORAN</li>
               <li>
                 <a href="<?php echo base_url('Laporan'); ?>">
-                  <i class="fa fa-files-o"></i><span>&nbsp;FORM MOBILISASI</span>
-                  <span class="pull-right-container">
-                    <span class="label label-primary pull-right">0</span>
-                  </span>
+                  <i class="fa fa-files-o"></i><span>&nbsp;REKAP FORM MOBILISASI</span>
+                 
                 </a>
               </li>
               <li>
                 <a href="<?php echo base_url('Laporan/biaya'); ?>">
-                  <i class="fa fa-files-o"></i><span>&nbsp;REPORT BIAYA-BIAYA</span>
+                  <i class="fa fa-files-o"></i><span>&nbsp;REPORT BIAYA</span>
                   <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                   </span>
@@ -350,10 +346,7 @@
               <li class="header">MENU LAPORAN</li>
               <li>
                 <a href="<?php echo base_url('Laporan'); ?>">
-                  <i class="fa fa-files-o"></i><span>&nbsp;FORM MOBILISASI</span>
-                  <span class="pull-right-container">
-                    <span class="label label-primary pull-right">0</span>
-                  </span>
+                  <i class="fa fa-files-o"></i><span>&nbsp;REKAP FORM MOBILISASI</span>
                 </a>
               </li>
              

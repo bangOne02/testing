@@ -5,38 +5,12 @@
 
     	<form id="form-search" method="post" action="#" autocomplete="off">
 				
-				<div class="col-md-12">
-					<div class="form-group">
-	    			<label style="display: inline-flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin: 12px 0;
-  cursor: pointer;
-  position: relative;">
-						  <input type="radio" id="ukuran" name="size" value="1"  checked="true" style="margin: 0px 0 0;"><span class="circle" ></span><span class="text" style="color: var(--second-color);
-  font-weight: bold;">&nbsp;RENCANA KEBERANGKATAN</span>
-						<!--   <label for="male">KECIL</label><br>
-						  <input type="radio" id="female" name="gender" value="female">
-						  <label for="female">BESAR</label><br> -->
-						</label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<label style="display: inline-flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: nowrap;
-  margin: 12px 0;
-  cursor: pointer;
-  position: relative;">
-						  <input type="radio" id="ukuran" name="size" disabled value="0" style="margin: 0px 0 0;"><span class="circle" ></span><span class="text" style="color: var(--second-color);
-  font-weight: bold;">&nbsp;REALISASI KEBERANGKATAN</span>
-						<!--   <label for="male">KECIL</label><br>
-						  <input type="radio" id="female" name="gender" value="female">
-						  <label for="female">BESAR</label><br> -->
-						</label>
+				
+						  <input type="radio" id="ukuran" hidden="true" name="size" value="1"  checked="true" style="margin: 0px 0 0;"><span class="circle" ></span><span class="text" style="color: var(--second-color);
+  font-weight: bold;">
+					
 
-	    			</div>
-				</div>
+	    		
 				<div class="col-md-12">
 					<div class="form-group">
 						<br>

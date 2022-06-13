@@ -72,6 +72,14 @@ $(document).ready(function(){
 		});
    });
 
+   $('#nketerangan').change(function(){
+		if($(this).val() == '9999'){
+			$('#oketerangan').prop('disabled', false);
+		}else{
+			$('#oketerangan').prop('disabled', true);
+		}
+	});
+
    $('#form_add_suhu').submit(function(e){
 	e.preventDefault();
 	$.ajax({

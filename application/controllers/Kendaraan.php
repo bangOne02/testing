@@ -262,7 +262,14 @@ class Kendaraan extends CI_Controller {
 		$suhu = $this->input->post('suhu');
 		$tanggal = date('Y-m-d',strtotime($this->input->post('tanggal')));
 		$jam = $this->input->post('jam');
-		$keterangan = $this->input->post('keterangan');
+		$keterangan = $this->input->post('nketerangan');
+		
+		if ($keterangan == '9999')
+		{
+			$keterangan = $this->input->post('oketerangan');
+		}
+		
+		
 		$data_send_1 = array(
 				'pic'=> $pic,
 				'suhu'=> $suhu,

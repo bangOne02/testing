@@ -54,11 +54,25 @@
                                 		required><span class="validity"></span>	
 					    		</div>
 					    	</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label>KETERANGAN</label>
+									<select class="form-control" id="nketerangan" name="nketerangan" style="color: black">
+											<option value="export">EXPORT</option>
+											<option value="hlblock">HL BLOCK</option>
+											<option value="ingredient">INGREDIENT</option>
+											<option value="kosong">KOSONG</option> 
+											<option value="ready">READY</option> 
+											<option value="muat">MUAT</option> 
+											<option value="defrost">DEFROST</option> 
+											<option value="9999">OTHER</option> 
+									</select>
+								</div>
+							</div>
 					    	<div class="col-md-12">
 								<div class="form-group">
 									<br>
-					    			<label>KETERANGAN</label>
-										<input style="text-transform:uppercase" type="text" placeholder="" class="form-control" id="nkasbon" name="keterangan" required>
+										<input style="text-transform:uppercase" disabled="true" type="text" placeholder="" class="form-control" id="oketerangan" name="oketerangan" required>
 					    		</div>
 					    	</div>
 					   
